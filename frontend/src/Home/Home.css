@@ -1,5 +1,6 @@
 .plusButton {
-	border-radius: 50%;
+  border-radius: 50%;
+  margin-top: 5%
 }
 .map-view-container {
   width: 100%
@@ -7,4 +8,12 @@
 
 .submit-button-container {
   margin-top: 25%
+}
+
+.start-address-container {
+  margin-bottom: 6%
+}
+
+.end-address-container {
+  margin-top: 8%
 }

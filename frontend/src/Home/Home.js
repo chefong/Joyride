@@ -5,6 +5,8 @@ import './Home.css'
 
 export default class Home extends Component {
   state = {
+    startAddress: "",
+    endAddress: "",
     people: [
       {name: "", phoneNumber: "", address: "", passengerNum: 1}
     ],
@@ -33,7 +35,10 @@ export default class Home extends Component {
     
     let allPassengers = []
 
-    let passengerForms = document.getElementsByClassName("form-container")
+    let startAddress = e.target.elements.startAddress.value
+    let endAddress = e.target.elements.endAddress.value
+
+    this.setState({startAddress, endAddress})
 
     if (this.state.people.length <= 1) {
       let passengerName = e.target.elements.pName.value
@@ -75,10 +80,26 @@ export default class Home extends Component {
                 <h1>Carpuul</h1>
 				        <p>Carpuuling made right for everyone, everywhere.</p>
                 <form onSubmit={this.handleSubmit}>
+                  <div className="start-address-container">
+                    <div className="row justify-content-center">
+                      <p>Start Address</p>
+                    </div>
+                    <div className="row justify-content-center">
+                      <input class="form-control" type="text" placeholder="Start Address" name="startAddress" id="startAddress"/>
+                    </div>
+                  </div>
                   <div className="form-container" name="passengerForm">
                     { this.state.people && this.state.people.map(person => {
                       return <Field name={person.name} phoneNumber={person.phoneNumber} address={person.address} passengerNum={person.passengerNum}/>
                     }) }
+                  </div>
+                  <div className="end-address-container">
+                    <div className="row justify-content-center">
+                      <p>End Address</p>
+                    </div>
+                    <div className="row justify-content-center">
+                      <input class="form-control" type="text" placeholder="End Address" name="endAddress" id="endAddress"/>
+                    </div>
                   </div>
   				        <div className="row justify-content-center">
                     <button type="button" class="btn btn-light plusButton" onClick={this.handleClick}>+</button>
