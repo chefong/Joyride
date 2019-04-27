@@ -1,0 +1,4 @@
+.map-container {
+  position: "relative";
+  height: "calc(100vh - 20px)"
+}
