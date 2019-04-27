@@ -14,7 +14,7 @@ export default class Home extends Component {
                 <h1>Carpuul</h1>
 				<p>Carpuuling made right for everyone, everywhere.</p>
 
-				<div class="container">
+				<div class="container-fluid">
 				  <div class="row">
 				    <div class="col">
 						<button type="button" class="btn btn-light">1st location</button>
