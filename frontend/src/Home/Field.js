@@ -1,0 +1,27 @@
+import React, { Component } from 'react'
+import './Field.css'
+
+export default class Field extends Component {
+  render() {
+    return (
+      <div className="field-container">
+        <div className="row">
+          <p className="passenger-title">Passenger {this.props.passengerNum}</p>
+        </div>
+        <div class="row">
+          <div className="col-md-5">
+            <input class="form-control" type="text" placeholder="Name" name="pName"/>
+          </div>
+          <div className="col-md-7">
+            <input class="form-control" type="text" placeholder="Phone Number" name="pPhoneNumber"/>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <input class="form-control" type="text" placeholder="Address" name="pAddress"/>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
