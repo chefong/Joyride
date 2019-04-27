@@ -72,7 +72,7 @@ export class MapContainer extends Component {
         style={{
           position: "absolute",
           height: "100vh",
-          width: "98.25%"
+          width: "100%"
         }}
       >
         <Map
@@ -158,11 +158,13 @@ export class MapContainer extends Component {
           ]} 
           google={this.props.google} 
           zoom={14} 
-          onReady={this.handleMapReady} />
+          onReady={this.handleMapReady} 
+          
+          />
       </div>
     );
   }
 }
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAxl5yLMYFQZl5OhdMIqnPz3jbD4qjSeIo',
+  apiKey: 'AIzaSyAxl5yLMYFQZl5OhdMIqnPz3jbD4qjSeIo'
 })(MapContainer);
