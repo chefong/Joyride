@@ -1,3 +1,6 @@
 .plusButton {
 	border-radius: 50%;
 }
+.map-view-container {
+  width: 100%
+}

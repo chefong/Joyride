@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './Home.css';
+import MapContainer from './MapContainer'
+
 
 export default class Home extends Component {
   render() {
@@ -20,20 +22,21 @@ export default class Home extends Component {
 						<button type="button" class="btn btn-light">1st location</button>
 						<button type="button" class="btn btn-light">2nd location</button>
 				    </div>
+
 				    <div class="col">
 						<button type="button" class="btn btn-light">1st phone number</button>
 						<button type="button" class="btn btn-light">2nd phone number</button>
 				    </div>
+
 				  </div>
 				</div>
 				<button type="button" class="btn btn-light plusButton">+</button>
-              </div>
-            </div>
-          </div>
-          <div className="map-container">
-            <div className="container-fluid">
-              <div className="col-md-7">
-                <p>map</p>
+
+            <div className="col-md-8">
+              <div className="map-view-container">
+                <MapContainer />
+					</div>
+                </div>
               </div>
             </div>
           </div>
