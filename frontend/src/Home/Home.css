@@ -1,6 +1,17 @@
 .plusButton {
 	border-radius: 50%;
+	margin: auto;
 }
 .map-view-container {
   width: 100%
+}
+
+.btn {
+  margin-bottom: 5%;
+  display: block;
+  text-align: center;
+}
+
+.test {
+	margin: 0;
 }

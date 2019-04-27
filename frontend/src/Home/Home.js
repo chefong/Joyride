@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import MapContainer from './MapContainer'
 import './Home.css'
 
-export default class Home extends Component {
+export default class Home extends Component { 
   render() {
     return (
       <div className="home-container">
@@ -10,15 +10,16 @@ export default class Home extends Component {
           <div className="row">
             <div className="col-md-4">
               <div className="panel-container">
-                panel
-                <h1>Carpuul</h1>
-				<p>Carpuuling made right for everyone, everywhere.</p>
+                <h1 class="header">Carpuul</h1>
+				<p class="header">Carpuuling made right for everyone, everywhere.</p>
 
-				<div class="container">
+				<div class="container-fluid">
 				  <div class="row">
 				    <div class="col">
-						<button type="button" class="btn btn-light">1st location</button>
-						<button type="button" class="btn btn-light">2nd location</button>
+						<form>
+						<input class="btn btn-light" type="text" name="firstname"></input>
+						<input class="btn btn-light" type="text" name="firstname"></input>
+						</form>
 				    </div>
 				    <div class="col">
 						<button type="button" class="btn btn-light">1st phone number</button>
