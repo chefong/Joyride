@@ -1,6 +1,7 @@
 .plusButton {
 	border-radius: 50%;
 	margin: auto;
+	margin-top: 5%
 }
 
 .map-view-container {
@@ -26,9 +27,7 @@ h1 {
 	font-size: 45px;
 	animation-duration: 3s;
 	animation-delay: 1s;
-/*
-	animation-iteration-count: infinite;
-*/
+	color: white;
 }
 
 .body {
@@ -53,15 +52,11 @@ h1 {
 	background-color: #00E38D;
 }
 
-.form-container {
-/*
-	border: 2px solid black;
-*/
+.start-address-container {
+  margin-bottom: 6%
 }
 
-.panel-container {
-	background: url("./assets/hex.png");
-	background-size: cover;
+.end-address-container {
+  margin-top: 8%
 }
-
 

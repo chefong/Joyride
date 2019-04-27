@@ -5,6 +5,8 @@ import './Home.css'
 
 export default class Home extends Component {
   state = {
+    startAddress: "",
+    endAddress: "",
     people: [
       {name: "", phoneNumber: "", address: "", passengerNum: 1}
     ],
@@ -30,12 +32,42 @@ export default class Home extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
+    
+    let allPassengers = []
 
-    let passengerForms = document.getElementsByClassName("form-container")
-    console.log(passengerForms)
-    // for (let i = 0; i < passengerForms.children; ++i) {
-    //   console.log(passengerForms[i].pName)
-    // }
+    let startAddress = e.target.elements.startAddress.value
+    let endAddress = e.target.elements.endAddress.value
+
+    this.setState({startAddress, endAddress})
+
+    if (this.state.people.length <= 1) {
+      let passengerName = e.target.elements.pName.value
+      let passengerPhoneNumber = e.target.elements.pPhoneNumber.value
+      let passengerAddress = e.target.elements.pAddress.value
+
+      let passenger = {
+        name: passengerName,
+        phoneNumber: passengerPhoneNumber,
+        address: passengerAddress
+      }
+
+      allPassengers.push(passenger)
+    }
+    else {
+      for (let i = 0; i < this.state.people.length; ++i) {
+        let passengerName = e.target.elements.pName[i].value
+        let passengerPhoneNumber = e.target.elements.pPhoneNumber[i].value
+        let passengerAddress = e.target.elements.pAddress[i].value
+
+        let passenger = {
+          name: passengerName,
+          phoneNumber: passengerPhoneNumber,
+          address: passengerAddress
+        }
+
+        allPassengers.push(passenger)
+      }
+    }
   }
 
   render() {
@@ -48,10 +80,26 @@ export default class Home extends Component {
 				<h1 class="animated fadeInDown" align="center">Carpuul</h1>
 					<p class="body">Carpuuling made right for everyone, everywhere.</p>
                 <form onSubmit={this.handleSubmit}>
+                  <div className="start-address-container">
+                    <div className="row justify-content-center">
+                      <p>Start Address</p>
+                    </div>
+                    <div className="row justify-content-center">
+                      <input class="form-control" type="text" placeholder="Start Address" name="startAddress" id="startAddress"/>
+                    </div>
+                  </div>
                   <div className="form-container" name="passengerForm">
                     { this.state.people && this.state.people.map(person => {
                       return <Field name={person.name} phoneNumber={person.phoneNumber} address={person.address} passengerNum={person.passengerNum}/>
                     }) }
+                  </div>
+                  <div className="end-address-container">
+                    <div className="row justify-content-center">
+                      <p>End Address</p>
+                    </div>
+                    <div className="row justify-content-center">
+                      <input class="form-control" type="text" placeholder="End Address" name="endAddress" id="endAddress"/>
+                    </div>
                   </div>
   				        <div className="row justify-content-center">
                     <button type="button" class="btn btn-light plusButton" onClick={this.handleClick}>+</button>
@@ -65,7 +113,7 @@ export default class Home extends Component {
               </div>
             </div>
             <div className="right_side col-md-8">
-              <div className="map-view-container animated fadeInLeft">
+              <div className="map-view-container animated fadeInRight">
                 <MapContainer />
               </div>
             </div>
