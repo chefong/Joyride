@@ -42,6 +42,7 @@ h1 {
 	width: 100%;
 	height: 100vh;
 	background-color: #212121;
+	overflow: auto;
 }
 
 .right_side {
