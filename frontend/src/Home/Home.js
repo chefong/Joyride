@@ -72,7 +72,7 @@ export default class Home extends Component {
       }
     }
 
-    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://90cad8d8.ngrok.io/foo`, JSON.stringify(allPassengers)).then(res => {
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://af71bc49.ngrok.io/foo`, JSON.stringify(allPassengers)).then(res => {
       console.log(res)
       this.setState({requested: true})
     }).catch(err => {
