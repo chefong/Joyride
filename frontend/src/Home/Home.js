@@ -45,7 +45,7 @@ export default class Home extends Component {
           <div className="row">
             <div className="left_side col-md-4">
               <div className="panel-container">
-				<h1 class="animated fadeInDown">Carpuul</h1>
+				<h1 class="animated fadeInDown" align="center">Carpuul</h1>
 					<p class="body">Carpuuling made right for everyone, everywhere.</p>
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-container" name="passengerForm">
@@ -56,7 +56,7 @@ export default class Home extends Component {
   				        <div className="row justify-content-center">
                     <button type="button" class="btn btn-light plusButton" onClick={this.handleClick}>+</button>
                   </div>
-                  <div className="row justify-content-center">
+                  <div id="submit" className="row justify-content-center">
                     <div className="submit-button-container">
                       <button type="submit" class="btn btn-light submit-button">Submit</button>
                     </div>
@@ -64,7 +64,7 @@ export default class Home extends Component {
                 </form>
               </div>
             </div>
-            <div className="col-md-8">
+            <div className="right_side col-md-8">
               <div className="map-view-container animated fadeInLeft">
                 <MapContainer />
               </div>

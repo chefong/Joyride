@@ -68,14 +68,16 @@ export class MapContainer extends Component {
         style={{
           position: "absolute",
           height: "100vh",
-          width: "101%"
+          width: "100%"
         }}
       >
         <Map
           style={{}} 
           google={this.props.google} 
           zoom={14} 
-          onReady={this.handleMapReady} />
+          onReady={this.handleMapReady} 
+          
+          />
       </div>
     );
   }
