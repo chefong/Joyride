@@ -8,10 +8,10 @@ export default class Home extends Component {
       <div className="home-container">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-4">
+            <div className="left_side col-md-4">
               <div className="panel-container">
-                <h1 class="header">Carpuul</h1>
-				<p class="header">Carpuuling made right for everyone, everywhere.</p>
+                <h1 class="animated fadeInDown">Carpuul</h1>
+				<p class="body">Carpuuling made right for everyone, everywhere.</p>
 
 				<div class="container-fluid">
 				  <div class="row">
@@ -31,7 +31,7 @@ export default class Home extends Component {
               </div>
             </div>
             <div className="col-md-8">
-              <div className="map-view-container">
+              <div className="map-view-container animated fadeInLeft">
                 <MapContainer />
               </div>
             </div>

@@ -3,7 +3,9 @@
 	margin: auto;
 }
 .map-view-container {
-  width: 100%
+	width: 100%;
+  	animation-duration: 3s;
+	animation-delay: 1s;
 }
 
 .btn {
@@ -14,4 +16,25 @@
 
 .test {
 	margin: 0;
+}
+
+h1 {
+	padding-top: 50px;
+	padding-left: 30px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	font-size: 45px;
+	animation-duration: 3s;
+	animation-delay: 1s;
+/*
+	animation-iteration-count: infinite;
+*/
+}
+
+.body {
+	padding-left: 30px;
+}
+
+.left_side {
+	width: 100%;
 }

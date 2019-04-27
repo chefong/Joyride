@@ -68,7 +68,7 @@ export class MapContainer extends Component {
         style={{
           position: "absolute",
           height: "100vh",
-          width: "98.25%"
+          width: "101%"
         }}
       >
         <Map
@@ -81,5 +81,5 @@ export class MapContainer extends Component {
   }
 }
 export default GoogleApiWrapper({
-  apiKey: key
+  apiKey: 'AIzaSyAxl5yLMYFQZl5OhdMIqnPz3jbD4qjSeIo'
 })(MapContainer);
