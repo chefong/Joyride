@@ -22,7 +22,11 @@ export class MapContainer extends Component {
 
   calculateAndDisplayRoute(map) {
     const directionsService = new google.maps.DirectionsService();
-    const directionsDisplay = new google.maps.DirectionsRenderer();
+    const directionsDisplay = new google.maps.DirectionsRenderer({
+    polylineOptions: {
+      strokeColor: "#00E38D"
+    }
+  });
     directionsDisplay.setMap(map);
 
 
@@ -79,12 +83,12 @@ export class MapContainer extends Component {
             {
               featureType: 'administrative.locality',
               elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
+              stylers: [{color: '#e6e6e6'}]
             },
             {
               featureType: 'poi',
               elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
+              stylers: [{color: '#e6e6e6'}]
             },
             {
               featureType: 'poi.park',
@@ -94,27 +98,27 @@ export class MapContainer extends Component {
             {
               featureType: 'poi.park',
               elementType: 'labels.text.fill',
-              stylers: [{color: '#6b9a76'}]
+              stylers: [{color: '#e6e6e6'}]
             },
             {
               featureType: 'road',
               elementType: 'geometry',
-              stylers: [{color: '#38414e'}]
+              stylers: [{color: '#e6e6e6'}]
             },
             {
               featureType: 'road',
               elementType: 'geometry.stroke',
-              stylers: [{color: '#212a37'}]
+              stylers: [{color: '#e6e6e6'}]
             },
             {
               featureType: 'road',
               elementType: 'labels.text.fill',
-              stylers: [{color: '#9ca5b3'}]
+              stylers: [{color: '#e6e6e6'}]
             },
             {
               featureType: 'road.highway',
               elementType: 'geometry',
-              stylers: [{color: '#746855'}]
+              stylers: [{color: '#e6e6e6'}]
             },
             {
               featureType: 'road.highway',
@@ -124,7 +128,7 @@ export class MapContainer extends Component {
             {
               featureType: 'road.highway',
               elementType: 'labels.text.fill',
-              stylers: [{color: '#f3d19c'}]
+              stylers: [{color: '#e6e6e6'}]
             },
             {
               featureType: 'transit',
@@ -160,5 +164,5 @@ export class MapContainer extends Component {
   }
 }
 export default GoogleApiWrapper({
-  apiKey: key,
+  apiKey: 'AIzaSyAxl5yLMYFQZl5OhdMIqnPz3jbD4qjSeIo',
 })(MapContainer);
