@@ -3,6 +3,8 @@ import MapContainer from './MapContainer'
 import Field from './Field'
 import './Home.css'
 
+import axios from 'axios'
+
 export default class Home extends Component {
   state = {
     startAddress: "",
@@ -10,7 +12,8 @@ export default class Home extends Component {
     people: [
       {name: "", phoneNumber: "", address: "", passengerNum: 1}
     ],
-    num: 1
+    num: 1,
+    requested: false
   }
 
   handleClick = e => {
@@ -68,6 +71,13 @@ export default class Home extends Component {
         allPassengers.push(passenger)
       }
     }
+
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://90cad8d8.ngrok.io/foo`, JSON.stringify(allPassengers)).then(res => {
+      console.log(res)
+      this.setState({requested: true})
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
   render() {
