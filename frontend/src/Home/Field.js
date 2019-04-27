@@ -10,15 +10,15 @@ export default class Field extends Component {
         </div>
         <div class="row">
           <div className="col-md-5">
-            <input class="form-control" type="text" placeholder="Name" name="pName"/>
+            <input class="form-control" type="text" placeholder="Name" name="pName" id="pName"/>
           </div>
           <div className="col-md-7">
-            <input class="form-control" type="text" placeholder="Phone Number" name="pPhoneNumber"/>
+            <input class="form-control" type="text" placeholder="Phone Number" name="pPhoneNumber" id="pPhoneNumber"/>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <input class="form-control" type="text" placeholder="Address" name="pAddress"/>
+            <input class="form-control" type="text" placeholder="Address" name="pAddress" id="pAddress"/>
           </div>
         </div>
       </div>

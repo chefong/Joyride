@@ -30,12 +30,39 @@ export default class Home extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
+    
+    let allPassengers = []
 
     let passengerForms = document.getElementsByClassName("form-container")
-    console.log(passengerForms)
-    // for (let i = 0; i < passengerForms.children; ++i) {
-    //   console.log(passengerForms[i].pName)
-    // }
+
+    if (this.state.people.length <= 1) {
+      let passengerName = e.target.elements.pName.value
+      let passengerPhoneNumber = e.target.elements.pPhoneNumber.value
+      let passengerAddress = e.target.elements.pAddress.value
+
+      let passenger = {
+        name: passengerName,
+        phoneNumber: passengerPhoneNumber,
+        address: passengerAddress
+      }
+
+      allPassengers.push(passenger)
+    }
+    else {
+      for (let i = 0; i < this.state.people.length; ++i) {
+        let passengerName = e.target.elements.pName[i].value
+        let passengerPhoneNumber = e.target.elements.pPhoneNumber[i].value
+        let passengerAddress = e.target.elements.pAddress[i].value
+
+        let passenger = {
+          name: passengerName,
+          phoneNumber: passengerPhoneNumber,
+          address: passengerAddress
+        }
+
+        allPassengers.push(passenger)
+      }
+    }
   }
 
   render() {
