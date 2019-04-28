@@ -137,7 +137,7 @@ export default class Home extends Component {
               </div> }
               { this.state.requested && <Pickup allPassengers={ this.state.allPassengers }/> }
             </div>
-            <div className="col-md-8">
+            <div className="right_side col-md-8">
               <div className="map-view-container">
                 <MapContainer allPassengers={ this.state.allPassengers }/>
               </div>
