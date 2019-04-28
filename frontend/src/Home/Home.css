@@ -1,3 +1,24 @@
+.panel-container, .btn {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.submit-button {
+	border-style: none;
+	padding: 5px;
+	background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(83,83,236,1) 100%);
+	border-radius: 20px 20px 0px 0px;
+	height: 5vh;
+	width: 32.5em;
+	overflow: hidden;
+	color: white;
+	letter-spacing: 10px;
+	font-weight: bold
+}
+
+.submit-button:hover {
+	color: rgb(204, 204, 204)
+}
+
 .form-control {
 	margin-bottom: 4%;
 	border: 10px 0px 0px 0px solid;
@@ -7,10 +28,18 @@
     border-image-slice: 1;
 }
 
+.field-container {
+	color: white;
+}
+
 .plusButton {
-	border-radius: 50%;
+	border-radius: 12px;
 	margin: auto;
-	margin-top: 5%
+	margin-top: 2%;
+	margin-bottom: 10%;
+	border: none;
+	font-size: 125%;
+	padding: 0 10px
 }
 
 .map-view-container {
@@ -19,35 +48,35 @@
 	animation-delay: 1s;
 }
 
-.btn {
-  margin-bottom: 5%;
-  display: block;
-  text-align: center;
-}
 
 .test {
 	margin: 0;
 }
 
-h1 {
-	font-weight: 700;
-	font-size: 45px;
-	animation-duration: 3s;
+.hex {
+	
+	animation-duration: 2s;
 	animation-delay: 1s;
-	color: #black;
-	text-decoration: underline;
-	padding-top: 80px;
-	}
+	
+}
 
 .body {
 	padding-left: 30px;
 }
 
 .left_side {
-	width: 100%;
 	height: 100vh;
+/*
 	background-color: #212836;
+*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	background: linear-gradient(
+      rgba(0, 0, 8, .865), 
+      rgba(0, 0, 8, .865)
+    ), url("./assets/map2.png");
 	overflow: auto;
+	width: 100%;
 }
 
 .right_side {
@@ -55,51 +84,57 @@ h1 {
 }
 
 .submit-button-container {
-	margin-top: 25%;
+	margin-top: 15%;
+	border: none;
 }
 
 .btn {
-	background-color: white;
 	border-style: none;
+	border-radius: 15px
 }
 
 .start-address-container {
-  margin-bottom: 6%
+  margin-bottom: 2%
 }
 
 .end-address-container {
   margin-top: 8%
 }
 
-.container {
-	position: relative;
+.hex-container {
+	text-align: center
 }
 
 .hex {
-	position: absolute;
 	width: 200px;
-	padding-top: 10px;
+	margin-top: 8%;
+	margin-bottom: 4%
+}
+
+.hex:hover {
+	cursor: pointer
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #5EAAF0;
+  background-color: white;
   border-radius: 10px;
 }
 
 .form-control {
-	border-top: 3px solid;
-	border-image-source: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-	border-top: 3px solid #00E38D;
-	width: 90%;
-	background-color: #303030;
+	border-top: 5px solid;
+	border-image-source: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(83,83,236,1) 100%);
+	border-top: 5px solid #00E38D;
+	width: 100%;
+	background-color: white;
 }
 
 .body {
 	color: white;
+	font-family: "Ubuntu", sans-serif;
 }
 
 .container>img {
@@ -108,8 +143,33 @@ h1 {
 	width: 50%;
 }
 
+.dots-container {
+	margin: 8% 0
+}
 
+.dotsUp, .dotsDown {
+	width: 4%;
+	height: 4%
+}
 
+.start-end {
+	color: white;
+	margin-left: 3.5%;
+  margin-bottom: 2%;
+  font-weight: bold;
+  font-size: 100%
+}
 
+.spinner-container {
+	text-align: center
+}
 
+#spinner {
+	width: 15%
+}
 
+.bottom {
+	background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(83,83,236,1) 100%);
+	border-radius: 10px 10px 0px 0px;
+	height: 5vh;
+}

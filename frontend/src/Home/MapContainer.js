@@ -3,6 +3,7 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
 const key = process.env.REACT_APP_API_KEY
 const google = window.google;
+let allPassengers = []
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -12,12 +13,26 @@ export class MapContainer extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {}
+      selectedPlace: {},
+      allPassengers: [],
+      gMap: undefined
     };
   }
 
+  componentDidUpdate = () => {
+    // for (let i = 0; i < this.props.allPassengers.length; ++i) {
+    //   let address = this.props.allPassengers[i].address
+    //   console.log(address)
+    // }
+    console.log(this.props.allPassengers)
+    if (this.props.allPassengers.length >= 1) {
+      this.calculateAndDisplayRoute(this.state.gMap)
+    }
+  }
+
   handleMapReady(mapProps, map) {
-    this.calculateAndDisplayRoute(map);
+    //this.calculateAndDisplayRoute(map);
+    this.setState({ gMap: map })
   }
 
   calculateAndDisplayRoute(map) {
@@ -29,15 +44,44 @@ export class MapContainer extends Component {
   });
     directionsDisplay.setMap(map);
 
+    let waypoints = []
 
-    const waypoints = [
+    let startPoint = {
+      location: this.props.startAddress,
+      stopover: false
+    }
+    let endPoint = {
+      location: this.props.endAddress,
+      stopover: false
+    }
+
+    console.log(this.props.allPassengers)
+    if (this.props.allPassengers.length < 1) {
+      waypoints.push(startPoint)
+      waypoints = [
       {
         location: 'Joplin, MO',
         stopover: false
       },{
         location: 'Oklahoma City, OK',
-        stopover: true
+        stopover: false
       }]
+    }
+    else {
+      waypoints = []
+      waypoints.push(startPoint)
+      for (let i = 0; i < this.props.allPassengers.length; ++i) {
+        let address = this.props.allPassengers[i].address
+        let waypoint = { location: address, stopover: true }
+
+        waypoints.push(waypoint)
+      }
+    }
+
+    waypoints.push(endPoint)
+
+    console.log(waypoints)
+
     const origin = waypoints.shift().location;
     const destination = waypoints.pop().location;
 

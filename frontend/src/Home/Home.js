@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
 import MapContainer from './MapContainer'
 import Field from './Field'
+import Pickup from './Pickup'
 import './Home.css'
 
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete';
+import axios from 'axios'
 
-
+const dots = require('./assets/dots.png')
+const dotsDown = require('./assets/dotsdown.png')
+const dotsUp = require('./assets/dotsup.png')
+const spinner = require('./assets/spinner.svg')
 
 export default class Home extends Component {
-	
-
 
   state = {
     startAddress: "",
@@ -20,13 +19,16 @@ export default class Home extends Component {
     people: [
       {name: "", phoneNumber: "", address: "", passengerNum: 1}
     ],
-    num: 1
+    num: 1,
+    requested: false,
+    allPassengers: [],
+    isLoading: false
   }
 
   handleClick = e => {
     e.preventDefault()
 
-    if (this.state.num >= 5) {
+    if (this.state.num >= 3) {
       return
     }
 
@@ -47,8 +49,10 @@ export default class Home extends Component {
 
     let startAddress = e.target.elements.startAddress.value
     let endAddress = e.target.elements.endAddress.value
+    console.log(startAddress)
+    console.log(endAddress)
 
-    this.setState({startAddress, endAddress})
+    this.setState({startAddress, endAddress, isLoading: true})
 
     if (this.state.people.length <= 1) {
       let passengerName = e.target.elements.pName.value
@@ -78,6 +82,31 @@ export default class Home extends Component {
         allPassengers.push(passenger)
       }
     }
+    console.log(allPassengers)
+
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://1f985546.ngrok.io/foo`,
+      JSON.stringify({
+        startAddress,
+        endAddress,
+        allPassengers
+      })
+    ).then(res => {
+      console.log(res.data)
+      this.setState({
+        requested: true,
+        allPassengers: res.data,
+        isLoading: false
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+
+  handleImageClick = () => {
+    this.setState({
+      requested: false,
+      allPassengers: []
+    })
   }
 
   render() {
@@ -86,18 +115,26 @@ export default class Home extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="left_side col-md-4">
-              <div className="panel-container">
-				<div class="container">
-					<img class="animated fadeInDown" src={require("./assets/hex_redone.png")}></img>
-				</div>
-					<p class="body">Carpuuling made right for everyone, everywhere.</p>
-					<form onSubmit={this.handleSubmit}>
+              <div class="container">
+                <div className="hex-container">
+                  <img class="hex animated fadeIn" src={require("./assets/hex_redone.png")} onClick={this.handleImageClick}></img>
+                </div>
+              </div>
+              { !this.state.requested && <div className="panel-container">
+                <form onSubmit={this.handleSubmit}>
                   <div className="start-address-container">
-                    <div className="row justify-content-center">
-                      <p>Start Address</p>
+                    <div className="row">
+                      <p className="start-end">Start Address</p>
                     </div>
+                    <div className="row">
+                      <div className="col-md-12">
+                        <input class="form-control" type="text" placeholder="Start Address" name="startAddress" id="startAddress" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="dots-container">
                     <div className="row justify-content-center">
-                      <input class="form-control" type="text" placeholder="Start Address" name="startAddress" id="startAddress" />
+                      <img className="dotsDown" src={ dotsDown } alt=""/>
                     </div>
                   </div>
                   <div className="form-container" name="passengerForm">
@@ -105,80 +142,44 @@ export default class Home extends Component {
                       return <Field name={person.name} phoneNumber={person.phoneNumber} address={person.address} passengerNum={person.passengerNum}/>
                     }) }
                   </div>
-                  <div className="end-address-container">
+                  <div className="dots-container">
                     <div className="row justify-content-center">
-                      <p>End Address</p>
-                    </div>
-                    <div className="row justify-content-center">
-                      <input class="form-control" type="text" placeholder="End Address" name="endAddress" id="endAddress"/>
+                      <img className="dotsUp" src={ dotsUp } alt=""/>
                     </div>
                   </div>
-  				        <div className="row justify-content-center">
-                    <button type="button" class="btn btn-light plusButton" onClick={this.handleClick}>+</button>
+                  <div className="end-address-container">
+                    <div className="row">
+                      <p className="start-end">End Address</p>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-12">
+                        <input class="form-control" type="text" placeholder="End Address" name="endAddress" id="endAddress"/>
+                      </div>
+                    </div>
+                  </div>
+  				  <div className="row justify-content-center">
+                    <button type="button" class="btn-light plusButton" onClick={this.handleClick}>+</button>
+                  </div>
+                  <div className="spinner-container">
+                    { this.state.isLoading && <img id="spinner" src={ spinner } alt=""/> }
                   </div>
                   <div id="submit" className="row justify-content-center">
                     <div className="submit-button-container">
-                      <button type="submit" class="btn btn-light submit-button">Submit</button>
+                      <button type="submit" class="btn-light submit-button">SUBMIT</button>
                     </div>
                   </div>
                 </form>
-              </div>
+              </div> }
+              { this.state.requested && <Pickup allPassengers={ this.state.allPassengers } startAddress={ this.state.startAddress } endAddress={ this.state.endAddress }/> }
             </div>
             <div className="right_side col-md-8">
-              <div className="map-view-container animated fadeInRight">
-                <MapContainer />
+              <div className="map-view-container">
+                <MapContainer allPassengers={ this.state.allPassengers } startAddress={ this.state.startAddress } endAddress={ this.state.endAddress }/>
               </div>
             </div>
           </div>
         </div>
       </div>
     )
-  }
-}
-
-class LocationSearchInput extends React.Component {
-
-
-  render() {
-    return (
-      <PlacesAutocomplete
-        value={this.state.address}
-        onChange={this.handleChange}
-        onSelect={this.handleSelect}
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <input
-              {...getInputProps({
-                placeholder: 'Search Places ...',
-                className: 'location-search-input',
-              })}
-            />
-            <div className="autocomplete-dropdown-container">
-              {loading && <div>Loading...</div>}
-              {suggestions.map(suggestion => {
-                const className = suggestion.active
-                  ? 'suggestion-item--active'
-                  : 'suggestion-item';
-                // inline style for demonstration purpose
-                const style = suggestion.active
-                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                return (
-                  <div
-                    {...getSuggestionItemProps(suggestion, {
-                      className,
-                      style,
-                    })}
-                  >
-                    <span>{suggestion.description}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
-    );
   }
 }
