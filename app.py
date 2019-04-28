@@ -14,8 +14,8 @@ app = Flask(__name__)
 CORS(app)
 
 
-account = "ACbd2368aa2d4006d714f1f84a403958e6" #do not commit lol
-token = "786094bec0abe8f4b01be7e6a089521e" # do not commit lol
+account = "" #do not commit lol
+token = "" # do not commit lol
 client = Client(account,token)
 endpoint = "https://maps.googleapis.com/maps/api/directions/json?"
 
@@ -38,7 +38,7 @@ def getDuration(origin,destination):
     origin = origin.replace(' ','+')
     destination = destination.replace(' ', '+')
     mode = "driving"
-    key = "AIzaSyAxl5yLMYFQZl5OhdMIqnPz3jbD4qjSeIo" 
+    key = "" 
 
  
     nav_request = "origin={}&destination={}&mode={}&key={}".format(origin,destination,mode,key)
