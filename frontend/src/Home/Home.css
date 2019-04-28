@@ -8,8 +8,7 @@
 	background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(83,83,236,1) 100%);
 	border-radius: 20px 20px 0px 0px;
 	height: 5vh;
-	width: 32.5em;
-	overflow: hidden;
+	width: 25em;
 	color: white;
 	letter-spacing: 10px;
 	font-weight: bold
@@ -72,8 +71,8 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background: linear-gradient(
-      rgba(0, 0, 8, .865), 
-      rgba(0, 0, 8, .865)
+      rgba(0, 0, 8, .87), 
+      rgba(0, 0, 8, .87)
     ), url("./assets/map2.png");
 	overflow: auto;
 	width: 100%;
@@ -86,6 +85,7 @@
 .submit-button-container {
 	margin-top: 15%;
 	border: none;
+	overflow: hidden;
 }
 
 .btn {
