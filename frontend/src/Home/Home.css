@@ -57,10 +57,19 @@ h1 {
 }
 
 .left_side {
-	width: 100%;
 	height: 100vh;
+/*
 	background-color: #212836;
+*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	background: linear-gradient(
+      rgba(0, 0, 8, .865), 
+      rgba(0, 0, 8, .865)
+    ), url("./assets/map2.png");
 	overflow: auto;
+		width: 100%;
+
 }
 
 .right_side {
@@ -101,19 +110,18 @@ h1 {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-/*  background-color: #5EAAF0;*/ 
-  background-color: #bfbfbf;
+  background-color: white;
   border-radius: 10px;
 }
 
 .form-control {
-	border-top: 3px solid;
-	border-image-source: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-	border-top: 3px solid #00E38D;
+	border-top: 5px solid;
+	border-image-source: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(83,83,236,1) 100%);
+	border-top: 5px solid #00E38D;
 	width: 100%;
 	background-color: white;
 }

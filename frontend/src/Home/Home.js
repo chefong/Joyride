@@ -12,6 +12,7 @@ const dotsUp = require('./assets/dotsup.png')
 const spinner = require('./assets/spinner.svg')
 
 export default class Home extends Component {
+
   state = {
     startAddress: "",
     endAddress: "",
@@ -156,7 +157,7 @@ export default class Home extends Component {
                       </div>
                     </div>
                   </div>
-  				        <div className="row justify-content-center">
+  				  <div className="row justify-content-center">
                     <button type="button" class="btn-light plusButton" onClick={this.handleClick}>+</button>
                   </div>
                   <div className="spinner-container">
@@ -166,6 +167,8 @@ export default class Home extends Component {
                     <div className="submit-button-container">
                       <button type="submit" class="btn-light submit-button">Submit</button>
                     </div>
+                  </div>
+                  <div className="bottom row">
                   </div>
                 </form>
               </div> }
