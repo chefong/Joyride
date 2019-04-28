@@ -56,10 +56,19 @@ h1 {
 }
 
 .left_side {
-	width: 100%;
 	height: 100vh;
+/*
 	background-color: #212836;
+*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	background: linear-gradient(
+      rgba(0, 0, 8, .865), 
+      rgba(0, 0, 8, .865)
+    ), url("./assets/map2.png");
 	overflow: auto;
+		width: 100%;
+
 }
 
 .right_side {
