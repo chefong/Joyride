@@ -1,3 +1,8 @@
+.panel-container {
+	font-family: 'Montserrat', sans-serif;
+}
+
+
 .form-control {
 	margin-bottom: 4%;
 	border: 10px 0px 0px 0px solid;
@@ -5,6 +10,10 @@
     /*border-image-source: linear-gradient(45deg, rgb(232, 139, 109), rgb(232, 139, 109));*/
      /*border-image: linear-gradient(to left, #e6e6ff 0%, #d53a9d 100%);*/
     border-image-slice: 1;
+}
+
+.field-container {
+	color: white;
 }
 
 .plusButton {
@@ -55,12 +64,14 @@ h1 {
 }
 
 .submit-button-container {
-	margin-top: 25%;
+	margin-top: 15%;
+	margin-bottom: 5%;
 }
 
 .btn {
 	background-color: white;
 	border-style: none;
+	color: white;
 }
 
 .start-address-container {
@@ -86,7 +97,8 @@ h1 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #5EAAF0;
+/*  background-color: #5EAAF0;*/ 
+  background-color: #bfbfbf;
   border-radius: 10px;
 }
 
