@@ -132,9 +132,9 @@ h1 {
 	margin: 8% 0
 }
 
-.dots {
-	width: 2%;
-	height: 2%
+.dotsUp, .dotsDown {
+	width: 4%;
+	height: 4%
 }
 
 .start-end {

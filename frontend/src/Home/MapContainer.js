@@ -89,7 +89,6 @@ export class MapContainer extends Component {
       origin: origin,
       destination: destination,
       waypoints: waypoints,
-      optimizeWaypoints: true,
       travelMode: 'DRIVING'
     }, (response, status) => {
       if (status === 'OK') {

@@ -3,6 +3,8 @@ import './Pickup.css'
 import axios from 'axios';
 
 const dots = require('./assets/dots.png')
+const dotsDown = require('./assets/dotsdown.png')
+const dotsUp = require('./assets/dotsup.png')
 
 export default class Pickup extends Component {
   componentDidMount = () => {
@@ -29,7 +31,7 @@ export default class Pickup extends Component {
           </div>
           <div className="dots-container">
             <div className="row justify-content-center">
-              <img className="dots" src={ dots } alt=""/>
+              <img className="dots" src={ dotsDown } alt=""/>
             </div>
           </div>
           { this.props.allPassengers.map(passenger => {
@@ -46,7 +48,7 @@ export default class Pickup extends Component {
           }) }
           <div className="dots-container">
             <div className="row justify-content-center">
-              <img className="dots" src={ dots } alt=""/>
+              <img className="dots" src={ dotsUp } alt=""/>
             </div>
           </div>
           <div className="end-pickup">
