@@ -24,7 +24,7 @@ export default class Home extends Component {
   handleClick = e => {
     e.preventDefault()
 
-    if (this.state.num >= 5) {
+    if (this.state.num >= 3) {
       return
     }
 
@@ -79,7 +79,13 @@ export default class Home extends Component {
     console.log(allPassengers)
     this.setState({ allPassengers })
 
-    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://000fe947.ngrok.io/foo`, JSON.stringify(allPassengers)).then(res => {
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://833afa08.ngrok.io/foo`,
+      JSON.stringify({
+        startAddress,
+        endAddress,
+        allPassengers
+      })
+    ).then(res => {
       console.log(res)
       this.setState({requested: true})
     }).catch(err => {
@@ -94,17 +100,18 @@ export default class Home extends Component {
           <div className="row">
             <div className="left_side col-md-4">
               <div class="container">
-                  <img class="hex animated fadeInDown" src={require("./assets/hex_redone.png")}></img>
+                <img class="hex animated fadeInDown" src={require("./assets/hex_redone.png")}></img>
               </div>
-              <p class="body">Carpuuling made right for everyone, everywhere.</p>
               { !this.state.requested && <div className="panel-container">
                 <form onSubmit={this.handleSubmit}>
                   <div className="start-address-container">
-                    <div className="row justify-content-center">
-                      <p>Start Address</p>
+                    <div className="row">
+                      <p className="start-end">Start Address</p>
                     </div>
-                    <div className="row justify-content-center">
-                      <input class="form-control" type="text" placeholder="Start Address" name="startAddress" id="startAddress" />
+                    <div className="row">
+                      <div className="col-md-12">
+                        <input class="form-control" type="text" placeholder="Start Address" name="startAddress" id="startAddress" />
+                      </div>
                     </div>
                   </div>
                   <div className="dots-container">
@@ -123,11 +130,13 @@ export default class Home extends Component {
                     </div>
                   </div>
                   <div className="end-address-container">
-                    <div className="row justify-content-center">
-                      <p>End Address</p>
+                    <div className="row">
+                      <p className="start-end">End Address</p>
                     </div>
-                    <div className="row justify-content-center">
-                      <input class="form-control" type="text" placeholder="End Address" name="endAddress" id="endAddress"/>
+                    <div className="row">
+                      <div className="col-md-12">
+                        <input class="form-control" type="text" placeholder="End Address" name="endAddress" id="endAddress"/>
+                      </div>
                     </div>
                   </div>
   				  <div className="row justify-content-center">
@@ -153,4 +162,3 @@ export default class Home extends Component {
     )
   }
 }
-

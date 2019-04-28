@@ -1,3 +1,22 @@
 .passenger-name {
   color: white;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  font-size: 120%
+}
+
+.pickup-container {
+  margin-left: 5%;
+  margin-top: 5%
+}
+
+.pickup-button {
+  background-color: white;
+	border-radius: 5px;
+  padding: 5px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.passenger-pickup {
+  margin-top: 4%
 }
