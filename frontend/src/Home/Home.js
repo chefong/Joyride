@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import MapContainer from './MapContainer'
 import Field from './Field'
+import Pickup from './Pickup'
 import './Home.css'
 
+import axios from 'axios'
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
@@ -19,7 +21,9 @@ export default class Home extends Component {
     people: [
       {name: "", phoneNumber: "", address: "", passengerNum: 1}
     ],
-    num: 1
+    num: 1,
+    requested: false,
+    allPassengers: []
   }
 
   handleClick = e => {
@@ -77,6 +81,15 @@ export default class Home extends Component {
         allPassengers.push(passenger)
       }
     }
+    console.log(allPassengers)
+    this.setState({ allPassengers, requested: true })
+
+    // axios.post(`https://cors-anywhere.herokuapp.com/` + `http://cecde3f4.ngrok.io/foo`, JSON.stringify(allPassengers)).then(res => {
+    //   console.log(res)
+    //   this.setState({requested: true})
+    // }).catch(err => {
+    //   console.log(err)
+    // })
   }
 
   render() {
@@ -85,12 +98,12 @@ export default class Home extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="left_side col-md-4">
-              <div className="panel-container">
-				<div class="container">
-					<img class="animated fadeInDown" src={require("./assets/hex_redone.png")}></img>
-				</div>
-					<p class="body">Carpuuling made right for everyone, everywhere.</p>
-					<form onSubmit={this.handleSubmit}>
+              <div class="container">
+                  <img class="hex animated fadeInDown" src={require("./assets/hex_redone.png")}></img>
+              </div>
+              <p class="body">Carpuuling made right for everyone, everywhere.</p>
+              { !this.state.requested && <div className="panel-container">
+                <form onSubmit={this.handleSubmit}>
                   <div className="start-address-container">
                     <div className="row justify-content-center">
                       <p>Start Address</p>
@@ -121,11 +134,12 @@ export default class Home extends Component {
                     </div>
                   </div>
                 </form>
-              </div>
+              </div> }
+              { this.state.requested && <Pickup allPassengers={ this.state.allPassengers }/> }
             </div>
-            <div className="right_side col-md-8">
-              <div className="map-view-container animated fadeInRight">
-                <MapContainer />
+            <div className="col-md-8">
+              <div className="map-view-container">
+                <MapContainer allPassengers={ this.state.allPassengers }/>
               </div>
             </div>
           </div>
