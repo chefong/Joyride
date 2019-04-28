@@ -13,7 +13,8 @@ export default class Home extends Component {
       {name: "", phoneNumber: "", address: "", passengerNum: 1}
     ],
     num: 1,
-    requested: false
+    requested: false,
+    allPassengers: []
   }
 
   handleClick = e => {
@@ -71,13 +72,15 @@ export default class Home extends Component {
         allPassengers.push(passenger)
       }
     }
+    console.log(allPassengers)
+    this.setState({ allPassengers })
 
-    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://af71bc49.ngrok.io/foo`, JSON.stringify(allPassengers)).then(res => {
-      console.log(res)
-      this.setState({requested: true})
-    }).catch(err => {
-      console.log(err)
-    })
+    // axios.post(`https://cors-anywhere.herokuapp.com/` + `http://cecde3f4.ngrok.io/foo`, JSON.stringify(allPassengers)).then(res => {
+    //   console.log(res)
+    //   this.setState({requested: true})
+    // }).catch(err => {
+    //   console.log(err)
+    // })
   }
 
   render() {
@@ -124,7 +127,7 @@ export default class Home extends Component {
             </div>
             <div className="col-md-8">
               <div className="map-view-container">
-                <MapContainer />
+                <MapContainer allPassengers={ this.state.allPassengers }/>
               </div>
             </div>
           </div>
