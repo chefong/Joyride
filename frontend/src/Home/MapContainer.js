@@ -46,8 +46,18 @@ export class MapContainer extends Component {
 
     let waypoints = []
 
+    let startPoint = {
+      location: this.props.startAddress,
+      stopover: false
+    }
+    let endPoint = {
+      location: this.props.endAddress,
+      stopover: false
+    }
+
     console.log(this.props.allPassengers)
     if (this.props.allPassengers.length <= 1) {
+      waypoints.push(startPoint)
       waypoints = [
       {
         location: 'Joplin, MO',
@@ -59,6 +69,7 @@ export class MapContainer extends Component {
     }
     else {
       waypoints = []
+      waypoints.push(startPoint)
       for (let i = 0; i < this.props.allPassengers.length; ++i) {
         let address = this.props.allPassengers[i].address
         let waypoint = { location: address, stopover: true }
@@ -66,6 +77,8 @@ export class MapContainer extends Component {
         waypoints.push(waypoint)
       }
     }
+
+    waypoints.push(endPoint)
 
     console.log(waypoints)
 

@@ -44,6 +44,8 @@ export default class Home extends Component {
 
     let startAddress = e.target.elements.startAddress.value
     let endAddress = e.target.elements.endAddress.value
+    console.log(startAddress)
+    console.log(endAddress)
 
     this.setState({startAddress, endAddress})
 
@@ -76,19 +78,28 @@ export default class Home extends Component {
       }
     }
     console.log(allPassengers)
-    this.setState({ allPassengers })
 
-    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://833afa08.ngrok.io/foo`,
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://e8c2463f.ngrok.io/foo`,
       JSON.stringify({
         startAddress,
         endAddress,
         allPassengers
       })
     ).then(res => {
-      console.log(res)
-      this.setState({requested: true})
+      console.log(res.data)
+      this.setState({
+        requested: true,
+        allPassengers: res.data
+      })
     }).catch(err => {
       console.log(err)
+    })
+  }
+
+  handleImageClick = () => {
+    this.setState({
+      requested: false,
+      allPassengers: []
     })
   }
 
@@ -99,7 +110,9 @@ export default class Home extends Component {
           <div className="row">
             <div className="left_side col-md-4">
               <div class="container">
-                <img class="hex animated fadeInDown" src={require("./assets/hex_redone.png")}></img>
+                <div className="hex-container">
+                  <img class="hex animated fadeInDown" src={require("./assets/hex_redone.png")} onClick={this.handleImageClick}></img>
+                </div>
               </div>
               { !this.state.requested && <div className="panel-container">
                 <form onSubmit={this.handleSubmit}>
@@ -148,11 +161,11 @@ export default class Home extends Component {
                   </div>
                 </form>
               </div> }
-              { this.state.requested && <Pickup allPassengers={ this.state.allPassengers }/> }
+              { this.state.requested && <Pickup allPassengers={ this.state.allPassengers } startAddress={ this.state.startAddress } endAddress={ this.state.endAddress }/> }
             </div>
             <div className="right_side col-md-8">
               <div className="map-view-container">
-                <MapContainer allPassengers={ this.state.allPassengers }/>
+                <MapContainer allPassengers={ this.state.allPassengers } startAddress={ this.state.startAddress } endAddress={ this.state.endAddress }/>
               </div>
             </div>
           </div>

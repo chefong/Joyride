@@ -20,3 +20,18 @@
 .passenger-pickup {
   margin-top: 4%
 }
+
+.start-pickup-label, .end-pickup-label {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 150%;
+  color: white;
+  text-align: center
+}
+
+.end-pickup-label {
+  margin-top: 10%
+}
+
+.start-pickup-label {
+  margin-bottom: 8%
+}
