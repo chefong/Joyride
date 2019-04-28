@@ -73,7 +73,7 @@ export default class Home extends Component {
       }
     }
     console.log(allPassengers)
-    this.setState({ allPassengers })
+    this.setState({ allPassengers, requested: true })
 
     // axios.post(`https://cors-anywhere.herokuapp.com/` + `http://cecde3f4.ngrok.io/foo`, JSON.stringify(allPassengers)).then(res => {
     //   console.log(res)
@@ -89,9 +89,9 @@ export default class Home extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="left_side col-md-4">
-              <div className="panel-container">
-				<h1 class="animated fadeInDown" align="center">Carpuul</h1>
-					<p class="body">Carpuuling made right for everyone, everywhere.</p>
+            <h1 class="animated fadeInDown" align="center">Carpuul</h1>
+					  <p class="body">Carpuuling made right for everyone, everywhere.</p>
+              { !this.state.requested && <div className="panel-container">
                 <form onSubmit={this.handleSubmit}>
                   <div className="start-address-container">
                     <div className="row justify-content-center">
@@ -123,7 +123,7 @@ export default class Home extends Component {
                     </div>
                   </div>
                 </form>
-              </div>
+              </div> }
             </div>
             <div className="col-md-8">
               <div className="map-view-container">
