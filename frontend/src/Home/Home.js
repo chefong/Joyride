@@ -7,6 +7,8 @@ import './Home.css'
 import axios from 'axios'
 
 const dots = require('./assets/dots.png')
+const dotsDown = require('./assets/dotsdown.png')
+const dotsUp = require('./assets/dotsup.png')
 
 export default class Home extends Component {
   state = {
@@ -79,7 +81,7 @@ export default class Home extends Component {
     }
     console.log(allPassengers)
 
-    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://e8c2463f.ngrok.io/foo`,
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://6171c52b.ngrok.io/foo`,
       JSON.stringify({
         startAddress,
         endAddress,
@@ -128,7 +130,7 @@ export default class Home extends Component {
                   </div>
                   <div className="dots-container">
                     <div className="row justify-content-center">
-                      <img className="dots" src={ dots } alt=""/>
+                      <img className="dotsDown" src={ dotsDown } alt=""/>
                     </div>
                   </div>
                   <div className="form-container" name="passengerForm">
@@ -138,7 +140,7 @@ export default class Home extends Component {
                   </div>
                   <div className="dots-container">
                     <div className="row justify-content-center">
-                      <img className="dots" src={ dots } alt=""/>
+                      <img className="dotsUp" src={ dotsUp } alt=""/>
                     </div>
                   </div>
                   <div className="end-address-container">
