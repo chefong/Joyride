@@ -24,7 +24,7 @@ export class MapContainer extends Component {
     const directionsService = new google.maps.DirectionsService();
     const directionsDisplay = new google.maps.DirectionsRenderer({
     polylineOptions: {
-      strokeColor: "#00E38D"
+      strokeColor: "#5EAAF0"
     }
   });
     directionsDisplay.setMap(map);
