@@ -1,6 +1,115 @@
+.form-control {
+	margin-bottom: 4%;
+	border: 10px 0px 0px 0px solid;
+	border-style: solid none none none;
+    /*border-image-source: linear-gradient(45deg, rgb(232, 139, 109), rgb(232, 139, 109));*/
+     /*border-image: linear-gradient(to left, #e6e6ff 0%, #d53a9d 100%);*/
+    border-image-slice: 1;
+}
+
 .plusButton {
 	border-radius: 50%;
+	margin: auto;
+	margin-top: 5%
 }
+
 .map-view-container {
-  width: 100%
+	width: 100%;
+  	animation-duration: 3s;
+	animation-delay: 1s;
 }
+
+.btn {
+  margin-bottom: 5%;
+  display: block;
+  text-align: center;
+}
+
+.test {
+	margin: 0;
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 45px;
+	animation-duration: 3s;
+	animation-delay: 1s;
+	color: #black;
+	text-decoration: underline;
+	padding-top: 80px;
+	}
+
+.body {
+	padding-left: 30px;
+}
+
+.left_side {
+	width: 100%;
+	height: 100vh;
+	background-color: #212836;
+	overflow: auto;
+}
+
+.right_side {
+	padding: 0;
+}
+
+.submit-button-container {
+	margin-top: 25%;
+}
+
+.btn {
+	background-color: white;
+	border-style: none;
+}
+
+.start-address-container {
+  margin-bottom: 6%
+}
+
+.end-address-container {
+  margin-top: 8%
+}
+
+.container {
+	position: relative;
+}
+
+.hex {
+	position: absolute;
+	width: 200px;
+	padding-top: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5EAAF0;
+  border-radius: 10px;
+}
+
+.form-control {
+	border-top: 3px solid;
+	border-image-source: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+	border-top: 3px solid #00E38D;
+	width: 90%;
+	background-color: #303030;
+}
+
+.body {
+	color: white;
+}
+
+.container>img {
+	display: block;
+	margin: auto;
+	width: 50%;
+}
+
+
+
+
+
+
