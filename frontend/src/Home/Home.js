@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MapContainer from './MapContainer'
 import Field from './Field'
+import Pickup from './Pickup'
 import './Home.css'
 
 import axios from 'axios'
@@ -89,8 +90,10 @@ export default class Home extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="left_side col-md-4">
-            <h1 class="animated fadeInDown" align="center">Carpuul</h1>
-					  <p class="body">Carpuuling made right for everyone, everywhere.</p>
+              <div class="container">
+                  <img class="animated fadeInDown" src={require("./assets/hex_redone.png")}></img>
+              </div>
+              <p class="body">Carpuuling made right for everyone, everywhere.</p>
               { !this.state.requested && <div className="panel-container">
                 <form onSubmit={this.handleSubmit}>
                   <div className="start-address-container">
@@ -98,7 +101,7 @@ export default class Home extends Component {
                       <p>Start Address</p>
                     </div>
                     <div className="row justify-content-center">
-                      <input class="form-control" type="text" placeholder="Start Address" name="startAddress" id="startAddress"/>
+                      <input class="form-control" type="text" placeholder="Start Address" name="startAddress" id="startAddress" />
                     </div>
                   </div>
                   <div className="form-container" name="passengerForm">
@@ -124,6 +127,7 @@ export default class Home extends Component {
                   </div>
                 </form>
               </div> }
+              { this.state.requested && <Pickup allPassengers={ this.state.allPassengers }/> }
             </div>
             <div className="col-md-8">
               <div className="map-view-container">
