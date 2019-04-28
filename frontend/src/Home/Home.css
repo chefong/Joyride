@@ -3,9 +3,9 @@
 }
 
 .submit-button {
-	background-color: white;
+	border-style: none;
 	border-radius: 5px;
-	padding: 5px
+	padding: 5px;
 }
 
 .form-control {
@@ -25,6 +25,7 @@
 	border-radius: 12px;
 	margin: auto;
 	margin-top: 2%;
+	margin-bottom: 10%;
 	border: none;
 	font-size: 125%;
 	padding: 0 10px
@@ -41,15 +42,12 @@
 	margin: 0;
 }
 
-h1 {
-	font-weight: 700;
-	font-size: 45px;
-	animation-duration: 3s;
+.hex {
+	
+	animation-duration: 2s;
 	animation-delay: 1s;
-	color: black;
-	text-decoration: underline;
-	padding-top: 80px;
-	}
+	
+}
 
 .body {
 	padding-left: 30px;
@@ -67,8 +65,7 @@ h1 {
       rgba(0, 0, 8, .865)
     ), url("./assets/map2.png");
 	overflow: auto;
-		width: 100%;
-
+	width: 100%;
 }
 
 .right_side {
@@ -153,4 +150,16 @@ h1 {
   font-size: 100%
 }
 
+.spinner-container {
+	text-align: center
+}
 
+#spinner {
+	width: 15%
+}
+
+.bottom {
+	background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(83,83,236,1) 100%);
+	border-radius: 10px 10px 0px 0px;
+	height: 5vh;
+}

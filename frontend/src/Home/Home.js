@@ -9,6 +9,7 @@ import axios from 'axios'
 const dots = require('./assets/dots.png')
 const dotsDown = require('./assets/dotsdown.png')
 const dotsUp = require('./assets/dotsup.png')
+const spinner = require('./assets/spinner.svg')
 
 export default class Home extends Component {
 
@@ -20,7 +21,8 @@ export default class Home extends Component {
     ],
     num: 1,
     requested: false,
-    allPassengers: []
+    allPassengers: [],
+    isLoading: false
   }
 
   handleClick = e => {
@@ -50,7 +52,7 @@ export default class Home extends Component {
     console.log(startAddress)
     console.log(endAddress)
 
-    this.setState({startAddress, endAddress})
+    this.setState({startAddress, endAddress, isLoading: true})
 
     if (this.state.people.length <= 1) {
       let passengerName = e.target.elements.pName.value
@@ -82,7 +84,7 @@ export default class Home extends Component {
     }
     console.log(allPassengers)
 
-    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://6171c52b.ngrok.io/foo`,
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://ea29cc0b.ngrok.io/foo`,
       JSON.stringify({
         startAddress,
         endAddress,
@@ -92,7 +94,8 @@ export default class Home extends Component {
       console.log(res.data)
       this.setState({
         requested: true,
-        allPassengers: res.data
+        allPassengers: res.data,
+        isLoading: false
       })
     }).catch(err => {
       console.log(err)
@@ -114,7 +117,7 @@ export default class Home extends Component {
             <div className="left_side col-md-4">
               <div class="container">
                 <div className="hex-container">
-                  <img class="hex animated fadeInDown" src={require("./assets/hex_redone.png")} onClick={this.handleImageClick}></img>
+                  <img class="hex animated fadeIn" src={require("./assets/hex_redone.png")} onClick={this.handleImageClick}></img>
                 </div>
               </div>
               { !this.state.requested && <div className="panel-container">
@@ -156,6 +159,9 @@ export default class Home extends Component {
                   </div>
   				  <div className="row justify-content-center">
                     <button type="button" class="btn-light plusButton" onClick={this.handleClick}>+</button>
+                  </div>
+                  <div className="spinner-container">
+                    { this.state.isLoading && <img id="spinner" src={ spinner } alt=""/> }
                   </div>
                   <div id="submit" className="row justify-content-center">
                     <div className="submit-button-container">

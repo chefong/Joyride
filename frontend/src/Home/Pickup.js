@@ -12,9 +12,12 @@ export default class Pickup extends Component {
     console.log(this.props.endAddress)
   }
 
-  handlePickup = name => {
-    axios.post("/bar", { name })
-    .then(res => {
+  handlePickup = (passenger, e) => {
+    e.preventDefault()
+
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://ea29cc0b.ngrok.io/sms`,
+      JSON.stringify(passenger)
+    ).then(res => {
       console.log(res)
     })
     .catch(err => {
@@ -31,7 +34,7 @@ export default class Pickup extends Component {
           </div>
           <div className="dots-container">
             <div className="row justify-content-center">
-              <img className="dots" src={ dotsDown } alt=""/>
+              <img className="dotsDown" src={ dotsDown } alt=""/>
             </div>
           </div>
           { this.props.allPassengers.map(passenger => {
@@ -41,14 +44,14 @@ export default class Pickup extends Component {
                   <p className="passenger-name">{ passenger.name }</p>
                 </div>
                 <div className="col">
-                  <button type="submit" className="pickup-button" onSubmit={ this.handlePickup(passenger.name) }>Picked Up!</button>
+                  <button type="submit" className="pickup-button" onClick={ e => this.handlePickup(passenger, e) }>Picked Up!</button>
                 </div>
               </div>
             </div>
           }) }
           <div className="dots-container">
             <div className="row justify-content-center">
-              <img className="dots" src={ dotsUp } alt=""/>
+              <img className="dotsUp" src={ dotsUp } alt=""/>
             </div>
           </div>
           <div className="end-pickup">
