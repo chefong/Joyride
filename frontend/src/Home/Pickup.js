@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import './Pickup.css'
+import axios from 'axios';
 
 export default class Pickup extends Component {
   componentDidMount = () => {
     console.log(this.props.allPassengers)
   }
 
-  handlePickup = e => {
-    e.preventDefault()
+  handlePickup = name => {
+    axios.post("/bar", { name })
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   render() {
@@ -21,7 +28,7 @@ export default class Pickup extends Component {
                   <p className="passenger-name">{ passenger.name }</p>
                 </div>
                 <div className="col">
-                  <button type="submit" onSubmit={ this.handlePickup }>Picked Up!</button>
+                  <button type="submit" className="pickup-button" onSubmit={ this.handlePickup(passenger.name) }>Picked Up!</button>
                 </div>
               </div>
             </div>

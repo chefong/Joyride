@@ -1,7 +1,12 @@
-.panel-container {
-	font-family: 'Montserrat', sans-serif;
+.panel-container, .btn {
+	font-family: 'Ubuntu', sans-serif;
 }
 
+.submit-button {
+	background-color: white;
+	border-radius: 5px;
+	padding: 5px
+}
 
 .form-control {
 	margin-bottom: 4%;
@@ -19,7 +24,8 @@
 .plusButton {
 	border-radius: 12px;
 	margin: auto;
-	margin-top: 5%
+	margin-top: 2%;
+	border: none;
 }
 
 .map-view-container {
@@ -28,11 +34,6 @@
 	animation-delay: 1s;
 }
 
-.btn {
-  margin-bottom: 5%;
-  display: block;
-  text-align: center;
-}
 
 .test {
 	margin: 0;
@@ -66,6 +67,7 @@ h1 {
 .submit-button-container {
 	margin-top: 15%;
 	margin-bottom: 5%;
+	border: none;
 }
 
 .btn {
@@ -107,12 +109,13 @@ h1 {
 	border-top: 3px solid;
 	border-image-source: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 	border-top: 3px solid #00E38D;
-	width: 90%;
-	background-color: #303030;
+	width: 100%;
+	background-color: white;
 }
 
 .body {
 	color: white;
+	font-family: "Ubuntu", sans-serif;
 }
 
 .container>img {
@@ -128,4 +131,12 @@ h1 {
 .dots {
 	width: 2%;
 	height: 2%
+}
+
+.start-end {
+	color: white;
+	margin-left: 3.5%;
+  margin-bottom: 2%;
+  font-weight: bold;
+  font-size: 100%
 }
