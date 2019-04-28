@@ -25,6 +25,7 @@
 	border-radius: 12px;
 	margin: auto;
 	margin-top: 2%;
+	margin-bottom: 10%;
 	border: none;
 	font-size: 125%;
 	padding: 0 10px
@@ -143,4 +144,12 @@ h1 {
   margin-bottom: 2%;
   font-weight: bold;
   font-size: 100%
+}
+
+.spinner-container {
+	text-align: center
+}
+
+#spinner {
+	width: 15%
 }

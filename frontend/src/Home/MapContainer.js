@@ -25,7 +25,7 @@ export class MapContainer extends Component {
     //   console.log(address)
     // }
     console.log(this.props.allPassengers)
-    if (this.props.allPassengers.length > 1) {
+    if (this.props.allPassengers.length >= 1) {
       this.calculateAndDisplayRoute(this.state.gMap)
     }
   }
@@ -56,7 +56,7 @@ export class MapContainer extends Component {
     }
 
     console.log(this.props.allPassengers)
-    if (this.props.allPassengers.length <= 1) {
+    if (this.props.allPassengers.length < 1) {
       waypoints.push(startPoint)
       waypoints = [
       {
