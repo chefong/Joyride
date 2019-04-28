@@ -5,8 +5,13 @@ import axios from 'axios';
 const dots = require('./assets/dots.png')
 const dotsDown = require('./assets/dotsdown.png')
 const dotsUp = require('./assets/dotsup.png')
+const spinner = require('./assets/spinner.svg')
 
 export default class Pickup extends Component {
+  state = {
+    isLoading: false
+  }
+
   componentDidMount = () => {
     console.log(this.props.startAddress)
     console.log(this.props.endAddress)
@@ -14,10 +19,12 @@ export default class Pickup extends Component {
 
   handlePickup = (passenger, e) => {
     e.preventDefault()
+    this.setState({ isLoading: true })
 
-    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://ea29cc0b.ngrok.io/sms`,
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://1f985546.ngrok.io/sms`,
       JSON.stringify(passenger)
     ).then(res => {
+      this.setState({ isLoading: false })
       console.log(res)
     })
     .catch(err => {
@@ -44,7 +51,7 @@ export default class Pickup extends Component {
                   <p className="passenger-name">{ passenger.name }</p>
                 </div>
                 <div className="col">
-                  <button type="submit" className="pickup-button" onClick={ e => this.handlePickup(passenger, e) }>Picked Up!</button>
+                  <button type="submit" className="pickup-button" onClick={ e => this.handlePickup(passenger, e) }>Picked Up</button>
                 </div>
               </div>
             </div>
@@ -56,6 +63,9 @@ export default class Pickup extends Component {
           </div>
           <div className="end-pickup">
             <p className="end-pickup-label">{ this.props.endAddress }</p>
+          </div>
+          <div className="spinner-container">
+            { this.state.isLoading && <img id="spinner" src={ spinner } alt=""/> }
           </div>
         </div>
       </div>
