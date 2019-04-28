@@ -77,15 +77,17 @@ export default class Home extends Component {
           <div className="row">
             <div className="left_side col-md-4">
               <div className="panel-container">
-				<h1 class="animated fadeInDown" align="center">Carpuul</h1>
+				<div class="container">
+					<img class="animated fadeInDown" src={require("./assets/hex_redone.png")}></img>
+				</div>
 					<p class="body">Carpuuling made right for everyone, everywhere.</p>
-                <form onSubmit={this.handleSubmit}>
+					<form onSubmit={this.handleSubmit}>
                   <div className="start-address-container">
                     <div className="row justify-content-center">
                       <p>Start Address</p>
                     </div>
                     <div className="row justify-content-center">
-                      <input class="form-control" type="text" placeholder="Start Address" name="startAddress" id="startAddress"/>
+                      <input class="form-control" type="text" placeholder="Start Address" name="startAddress" id="startAddress" />
                     </div>
                   </div>
                   <div className="form-container" name="passengerForm">

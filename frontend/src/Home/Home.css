@@ -25,14 +25,14 @@
 }
 
 h1 {
-	padding-top: 50px;
 	font-weight: 700;
-	letter-spacing: 1px;
 	font-size: 45px;
 	animation-duration: 3s;
 	animation-delay: 1s;
-	color: white;
-}
+	color: #black;
+	text-decoration: underline;
+	padding-top: 80px;
+	}
 
 .body {
 	padding-left: 30px;
@@ -64,4 +64,46 @@ h1 {
 .end-address-container {
   margin-top: 8%
 }
+
+.container {
+	position: relative;
+}
+
+.hex {
+	position: absolute;
+	width: 200px;
+	padding-top: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00E38D;
+  border-radius: 10px;
+}
+
+.form-control {
+	border-top: 3px solid;
+	border-image-source: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+	border-top: 3px solid #00E38D;
+	width: 90%;
+	background-color: #303030;
+}
+
+.body {
+	color: white;
+}
+
+.container>img {
+	display: block;
+	margin: auto;
+	width: 50%;
+}
+
+
+
+
+
 
