@@ -63,7 +63,13 @@ def jsonToDicts(STR):
 
 #passenger_stack
 passenger_list = []
-
+ETA1 = []
+ETA2 = []
+ETA3 = []
+ETA4 = []
+ETA5 = []
+ETA6 = []
+correct_eta = []
 @app.route("/foo", methods=['GET','POST'])
 def main():
 
@@ -127,89 +133,359 @@ def main():
         #for i in range(0, len(passenger_list)):
         #    possibilities[i]['path'] += "->" + passenger_list[i].address
         #    possibilities
-         
-        p1 = [origin,passenger_list[0].address, passenger_list[1].address, passenger_list[2].address, final_destination]
-        p2 = [origin,passenger_list[0].address, passenger_list[2].address, passenger_list[1].address, final_destination]
-        p3 = [origin,passenger_list[1].address, passenger_list[0].address, passenger_list[2].address, final_destination]
-        p4 = [origin,passenger_list[1].address, passenger_list[2].address, passenger_list[0].address, final_destination]
-        p5 = [origin,passenger_list[2].address, passenger_list[0].address, passenger_list[1].address, final_destination]
-        p6 = [origin,passenger_list[2].address, passenger_list[1].address, passenger_list[0].address, final_destination]
-        
-        possibilities = []
-
-
-        duration = 0
-        for i in range(0, 4):
-            duration += getDuration(p1[i], p1[i+1])
-
-
-        possibilities.append(duration)
-
         
 
 
-        duration = 0
-        for i in range(0, 4):
-            duration += getDuration(p2[i], p2[i+1])
+        if(len(passenger_list) == 1):
 
+    
+            DUR = getDuration(origin,passenger_list[0].address)
 
-        possibilities.append(duration)
+            DUR = DUR/60
 
-
-
-        duration = 0
-        for i in range(0, 4):
-            duration += getDuration(p3[i], p3[i+1])
-
-
-        possibilities.append(duration)
-
-
-
-        duration = 0
-        for i in range(0, 4):
-            duration += getDuration(p4[i], p4[i+1])
-
-
-        possibilities.append(duration)
+            text_message1 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR)
+            client.messages.create(to=passenger_list[0].phone_number,from_="+19258923648",body=text_message1)
+            return json.dumps([allPassengers[0]])
 
 
 
 
-        duration = 0
-        for i in range(0, 4):
-            duration += getDuration(p5[i], p5[i+1])
-
-
-        possibilities.append(duration)
 
 
 
-        duration = 0
-        for i in range(0, 4):
-            duration += getDuration(p6[i], p6[i+1])
 
 
-        possibilities.append(duration)
+        elif(len(passenger_list) == 2):
+
+            timez = []
+
+            pOne = [origin,passenger_list[0].address, passenger_list[1].address,final_destination]
+            pTwo = [origin,passenger_list[1].address, passenger_list[0].address,final_destination]
+
+            duration = 0
+            for i in range(0,3):
+                duration += getDuration(pOne[i],pOne[i+1])
+                ETA1.append(duration)
+
+            timez.append(duration)
+            duration = 0
+            for i in range(0,3):
+                duration += getDuration(pTwo[i],pOne[i+1])
+                ETA2.append(duration)
+
+            timez.append(duration)
+
+            if (timez[0] < timez[1]):
+                correct_eta = ETA1
+                
+                DUR1 = ETA1[0]
+                DUR2 = ETA1[1]
+                DUR1 = DUR1/60
+                DUR2 = DUR2/60
+
+                text_message1 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR1)
+                text_message2 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR2)
+                client.messages.create(to = passenger_list[0].phone_number,from_="+19258923648",body=text_message1)
+                client.messages.create(to = passenger_list[1].phone_number,from_="+19258923648",body=text_message2)
 
 
-        ind = np.argmin(possibilities)
-        print(possibilities[ind])
+
+                return json.dumps([allPassengers[0], allPassengers[1]])
+            else:
+                correct_eta = ETA2
+
+                DUR1 = ETA2[1]
+                DUR2 = ETA2[0]
+                DUR1 = DUR1/60
+                DUR2 = DUR2/60
+
+                text_message1 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR1)
+                text_message2 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR2)
+                client.messages.create(to = passenger_list[1].phone_number,from_="+19258923648",body=text_message1)
+                client.messages.create(to = passenger_list[0].phone_number,from_="+19258923648",body=text_message2)
 
 
-        if (ind == 0):
-            print(p1)
-        elif (ind == 1):
-            print(p2)
-        elif (ind == 2):
-            print(p3)
-        elif (ind == 3):
-            print(p4)
-        elif (ind == 4):
-            print(p5)
-        else:
-            print(p6)
+                return json.dumps([allPassengers[1],allPassengers[0]])
 
+
+        elif(len(passenger_list) == 3):
+
+            p1 = [origin,passenger_list[0].address, passenger_list[1].address, passenger_list[2].address, final_destination]
+            p2 = [origin,passenger_list[0].address, passenger_list[2].address, passenger_list[1].address, final_destination]
+            p3 = [origin,passenger_list[1].address, passenger_list[0].address, passenger_list[2].address, final_destination]
+            p4 = [origin,passenger_list[1].address, passenger_list[2].address, passenger_list[0].address, final_destination]
+            p5 = [origin,passenger_list[2].address, passenger_list[0].address, passenger_list[1].address, final_destination]
+            p6 = [origin,passenger_list[2].address, passenger_list[1].address, passenger_list[0].address, final_destination]
+        
+            possibilities = []
+            
+
+            duration = 0
+            for i in range(0, 4):
+                duration += getDuration(p1[i], p1[i+1])
+                ETA1.append(duration)
+
+            possibilities.append(duration)
+
+        
+
+
+            duration = 0
+            for i in range(0, 4):
+                duration += getDuration(p2[i], p2[i+1])
+                ETA2.append(duration)
+
+            possibilities.append(duration)
+
+
+
+            duration = 0
+            for i in range(0, 4):
+                duration += getDuration(p3[i], p3[i+1])
+                ETA3.append(duration)
+
+            possibilities.append(duration)
+
+
+
+            duration = 0
+            for i in range(0, 4):
+                duration += getDuration(p4[i], p4[i+1])
+                ETA4.append(duration)
+
+            possibilities.append(duration)
+
+
+
+
+            duration = 0
+            for i in range(0, 4):
+                duration += getDuration(p5[i], p5[i+1])
+                ETA5.append(duration)
+
+            possibilities.append(duration)
+
+
+
+            duration = 0
+            for i in range(0, 4):
+                duration += getDuration(p6[i], p6[i+1])
+                ETA6.append(duration)
+
+            possibilities.append(duration)
+
+
+            ind = np.argmin(possibilities)
+            print(possibilities[ind])
+
+
+            if (ind == 0):
+                print(p1)
+                correct_path = [allPassengers[0],allPassengers[1],allPassengers[2]]
+                correct_eta = ETA1
+
+
+                DUR1 = ETA1[0]
+                DUR2 = ETA1[1]
+                DUR3 = ETA1[2]
+                DUR1 = int(DUR1/60)
+                DUR2 = int(DUR2/60)
+                DUR3 = int(DUR3/60)
+                text_message1 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR1)
+                text_message2 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR2)
+                text_message3 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR3)
+                client.messages.create(to = passenger_list[0].phone_number,from_="+19258923648",body=text_message1)
+                client.messages.create(to = passenger_list[1].phone_number,from_="+19258923648",body=text_message2)
+                client.messages.create(to = passenger_list[2].phone_number,from_="+19258923648",body=text_message3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            elif (ind == 1):
+                print(p2)
+                correct_path = [allPassengers[0],allPassengers[2],allPassengers[1]]
+                correct_eta = ETA2
+
+
+
+
+
+
+                DUR1 = ETA2[0]
+                DUR2 = ETA2[1]
+                DUR3 = ETA2[2]
+                DUR1 = int(DUR1/60)
+                DUR2 = int(DUR2/60)
+                DUR3 = int(DUR3/60)
+                text_message1 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR1)
+                text_message2 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR2)
+                text_message3 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR3)
+                client.messages.create(to = passenger_list[0].phone_number,from_="+19258923648",body=text_message1)
+                client.messages.create(to = passenger_list[2].phone_number,from_="+19258923648",body=text_message2)
+                client.messages.create(to = passenger_list[1].phone_number,from_="+19258923648",body=text_message3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            elif (ind == 2):
+                print(p3)
+                correct_path = [allPassengers[1],allPassengers[0],allPassengers[2]]
+                correct_eta = ETA3
+
+
+
+                DUR1 = ETA1[0]
+                DUR2 = ETA1[1]
+                DUR3 = ETA1[2]
+                DUR1 = int(DUR1/60)
+                DUR2 = int(DUR2/60)
+                DUR3 = int(DUR3/60)
+                text_message1 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR1)
+                text_message2 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR2)
+                text_message3 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR3)
+                client.messages.create(to = passenger_list[1].phone_number,from_="+19258923648",body=text_message1)
+                client.messages.create(to = passenger_list[0].phone_number,from_="+19258923648",body=text_message2)
+                client.messages.create(to = passenger_list[2].phone_number,from_="+19258923648",body=text_message3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            elif (ind == 3):
+                print(p4)
+                correct_path = [allPassengers[1],allPassengers[2],allPassengers[0]]
+                correct_eta = ETA4
+
+
+
+
+
+                DUR1 = ETA1[0]
+                DUR2 = ETA1[1]
+                DUR3 = ETA1[2]
+                DUR1 = int(DUR1/60)
+                DUR2 = int(DUR2/60)
+                DUR3 = int(DUR3/60)
+                text_message1 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR1)
+                text_message2 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR2)
+                text_message3 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR3)
+                client.messages.create(to = passenger_list[1].phone_number,from_="+19258923648",body=text_message1)
+                client.messages.create(to = passenger_list[2].phone_number,from_="+19258923648",body=text_message2)
+                client.messages.create(to = passenger_list[0].phone_number,from_="+19258923648",body=text_message3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            elif (ind == 4):
+                print(p5)
+                correct_path = [allPassengers[2],allPassengers[0],allPassengers[1]]
+                correct_eta = ETA5
+
+
+
+
+
+
+
+                DUR1 = ETA1[0]
+                DUR2 = ETA1[1]
+                DUR3 = ETA1[2]
+                DUR1 = int(DUR1/60)
+                DUR2 = int(DUR2/60)
+                DUR3 = int(DUR3/60)
+                text_message1 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR1)
+                text_message2 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR2)
+                text_message3 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR3)
+                client.messages.create(to = passenger_list[2].phone_number,from_="+19258923648",body=text_message1)
+                client.messages.create(to = passenger_list[0].phone_number,from_="+19258923648",body=text_message2)
+                client.messages.create(to = passenger_list[1].phone_number,from_="+19258923648",body=text_message3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+            else:
+                print(p6)
+                correct_path = [allPassengers[2],allPassengers[1],allPassengers[0]]
+                correct_eta = ETA6
+
+                DUR1 = ETA1[0]
+                DUR2 = ETA1[1]
+                DUR3 = ETA1[2]
+                DUR1 = int(DUR1/60)
+                DUR2 = int(DUR2/60)
+                DUR3 = int(DUR3/60)
+                text_message1 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR1)
+                text_message2 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR2)
+                text_message3 = "Hello! Your friend has started driving. His/Her current ETA is {} minutes".format(DUR3)
+                client.messages.create(to = passenger_list[2].phone_number,from_="+19258923648",body=text_message1)
+                client.messages.create(to = passenger_list[1].phone_number,from_="+19258923648",body=text_message2)
+                client.messages.create(to = passenger_list[0].phone_number,from_="+19258923648",body=text_message3)
+
+
+
+
+
+            return (json.dumps(correct_path)) 
+
+        
 
         '''
 
@@ -251,50 +527,53 @@ def main():
 
 
 
-'''
-@app.route("/", methods=['GET','POST'])
-def main():
 
-    if request.method == 'POST':
-            results = request.form
-            #print(results.get(sendtext,-1))
-            
 
-            
 
-            return (jsonify({'result': "Success"}))
-    return render_template('frontend/public/index.html')
+@app.route("/sms",methods=['GET','POST'])
+def sms():
 
-            
-@app.route("/passengers",methods=['GET','POST'])
-def pickup():
-    
+
     if request.method == 'POST':
         results = request.form
 
-
-        #if passenger is picked up
-        #passenger_list.pop(0)
-
-    return render_template("index.html")
+        print(results)
 
 
+        RR = results.to_dict()
+        a = list(RR.keys())
+        c = a[0]
+        print(c)
+        print(type(c))
+        DD = jsonToDicts(c)
+        print(DD)
+        print(type(DD))
+
+        number = DD['phoneNumber']
+        name = DD['name']
+
+        #b = a[1:-1]
+        #print(b)
+        #print(type(b))
+
+
+        text_message = "Hey {}, I'm outside.".format(name)
+        #other_text_message = "Hey, I just picked up {}, I'm picking you up next".format(name)
+        message1 = client.messages.create(to=number,from_="+19258923648",body = text_message)
+        #message2 = client.messages.create(to=number,from_="+19258923648",body = other_text_message)
+
+
+
+
+    return json.dumps({'status':0})
 
 
 
 
 
-@app.route("/passengers",methods=['GET','POST'])
-def enroute():
-    if request.method == 'POST':
-        results = request.form
-
-        #if driver is 5 minutes away
-            #text_message = "Hi {}, your friend {} is 5 minutes away. Be ready! :) ".format(passenger[0]
-            # message = client.message.create(to = passenger_list[0].phone_number, from_ = driver_number, body = text_message)
+            
 
 
-'''
 
 
 if __name__ == "__main__":
