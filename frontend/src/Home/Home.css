@@ -19,7 +19,8 @@
 .plusButton {
 	border-radius: 50%;
 	margin: auto;
-	margin-top: 5%
+	margin-top: 5%;
+	border: none;
 }
 
 .map-view-container {
@@ -28,11 +29,6 @@
 	animation-delay: 1s;
 }
 
-.btn {
-  margin-bottom: 5%;
-  display: block;
-  text-align: center;
-}
 
 .test {
 	margin: 0;
@@ -66,6 +62,7 @@ h1 {
 .submit-button-container {
 	margin-top: 15%;
 	margin-bottom: 5%;
+	border: none;
 }
 
 .btn {
@@ -107,7 +104,7 @@ h1 {
 	border-image-source: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 	border-top: 3px solid #00E38D;
 	width: 90%;
-	background-color: #303030;
+	background-color: white;
 }
 
 .body {
