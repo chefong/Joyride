@@ -160,6 +160,8 @@ export default class Home extends Component {
                       <button type="submit" class="btn-light submit-button">Submit</button>
                     </div>
                   </div>
+                  <div className="bottom row">
+                  </div>
                 </form>
               </div> }
               { this.state.requested && <Pickup allPassengers={ this.state.allPassengers } startAddress={ this.state.startAddress } endAddress={ this.state.endAddress }/> }

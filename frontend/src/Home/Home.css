@@ -100,19 +100,19 @@ h1 {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
 /*  background-color: #5EAAF0;*/ 
-  background-color: #bfbfbf;
+  background-color: #00d4ff;
   border-radius: 10px;
 }
 
 .form-control {
-	border-top: 3px solid;
-	border-image-source: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-	border-top: 3px solid #00E38D;
+	border-top: 5px solid;
+	border-image-source: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(83,83,236,1) 100%);
+	border-top: 5px solid #00E38D;
 	width: 100%;
 	background-color: white;
 }
@@ -144,3 +144,5 @@ h1 {
   font-weight: bold;
   font-size: 100%
 }
+
+
