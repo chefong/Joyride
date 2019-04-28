@@ -5,17 +5,10 @@ import Pickup from './Pickup'
 import './Home.css'
 
 import axios from 'axios'
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete';
 
-
+const dots = require('./assets/dots.png')
 
 export default class Home extends Component {
-	
-
-
   state = {
     startAddress: "",
     endAddress: "",
@@ -83,14 +76,14 @@ export default class Home extends Component {
       }
     }
     console.log(allPassengers)
-    this.setState({ allPassengers, requested: true })
+    this.setState({ allPassengers })
 
-    // axios.post(`https://cors-anywhere.herokuapp.com/` + `http://cecde3f4.ngrok.io/foo`, JSON.stringify(allPassengers)).then(res => {
-    //   console.log(res)
-    //   this.setState({requested: true})
-    // }).catch(err => {
-    //   console.log(err)
-    // })
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://000fe947.ngrok.io/foo`, JSON.stringify(allPassengers)).then(res => {
+      console.log(res)
+      this.setState({requested: true})
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
   render() {
@@ -113,10 +106,20 @@ export default class Home extends Component {
                       <input class="form-control" type="text" placeholder="Start Address" name="startAddress" id="startAddress" />
                     </div>
                   </div>
+                  <div className="dots-container">
+                    <div className="row justify-content-center">
+                      <img className="dots" src={ dots } alt=""/>
+                    </div>
+                  </div>
                   <div className="form-container" name="passengerForm">
                     { this.state.people && this.state.people.map(person => {
                       return <Field name={person.name} phoneNumber={person.phoneNumber} address={person.address} passengerNum={person.passengerNum}/>
                     }) }
+                  </div>
+                  <div className="dots-container">
+                    <div className="row justify-content-center">
+                      <img className="dots" src={ dots } alt=""/>
+                    </div>
                   </div>
                   <div className="end-address-container">
                     <div className="row justify-content-center">
@@ -147,52 +150,5 @@ export default class Home extends Component {
         </div>
       </div>
     )
-  }
-}
-
-class LocationSearchInput extends React.Component {
-
-
-  render() {
-    return (
-      <PlacesAutocomplete
-        value={this.state.address}
-        onChange={this.handleChange}
-        onSelect={this.handleSelect}
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <input
-              {...getInputProps({
-                placeholder: 'Search Places ...',
-                className: 'location-search-input',
-              })}
-            />
-            <div className="autocomplete-dropdown-container">
-              {loading && <div>Loading...</div>}
-              {suggestions.map(suggestion => {
-                const className = suggestion.active
-                  ? 'suggestion-item--active'
-                  : 'suggestion-item';
-                // inline style for demonstration purpose
-                const style = suggestion.active
-                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                return (
-                  <div
-                    {...getSuggestionItemProps(suggestion, {
-                      className,
-                      style,
-                    })}
-                  >
-                    <span>{suggestion.description}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
-    );
   }
 }
