@@ -117,7 +117,7 @@ export default class Home extends Component {
             <div className="left_side col-md-4">
               <div class="container">
                 <div className="hex-container">
-                  <img class="hex animated fadeInDown" src={require("./assets/hex_redone.png")} onClick={this.handleImageClick}></img>
+                  <img class="hex animated fadeIn" src={require("./assets/hex_redone.png")} onClick={this.handleImageClick}></img>
                 </div>
               </div>
               { !this.state.requested && <div className="panel-container">
@@ -165,10 +165,8 @@ export default class Home extends Component {
                   </div>
                   <div id="submit" className="row justify-content-center">
                     <div className="submit-button-container">
-                      <button type="submit" class="btn-light submit-button">Submit</button>
+                      <button type="submit" class="btn-light submit-button">SUBMIT</button>
                     </div>
-                  </div>
-                  <div className="bottom row">
                   </div>
                 </form>
               </div> }

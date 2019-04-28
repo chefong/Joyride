@@ -3,9 +3,20 @@
 }
 
 .submit-button {
-	background-color: white;
-	border-radius: 5px;
-	padding: 5px
+	border-style: none;
+	padding: 5px;
+	background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(83,83,236,1) 100%);
+	border-radius: 20px 20px 0px 0px;
+	height: 5vh;
+	width: 32.5em;
+	overflow: hidden;
+	color: white;
+	letter-spacing: 10px;
+	font-weight: bold
+}
+
+.submit-button:hover {
+	color: rgb(204, 204, 204)
 }
 
 .form-control {
@@ -42,15 +53,12 @@
 	margin: 0;
 }
 
-h1 {
-	font-weight: 700;
-	font-size: 45px;
-	animation-duration: 3s;
+.hex {
+	
+	animation-duration: 2s;
 	animation-delay: 1s;
-	color: black;
-	text-decoration: underline;
-	padding-top: 80px;
-	}
+	
+}
 
 .body {
 	padding-left: 30px;
@@ -68,8 +76,7 @@ h1 {
       rgba(0, 0, 8, .865)
     ), url("./assets/map2.png");
 	overflow: auto;
-		width: 100%;
-
+	width: 100%;
 }
 
 .right_side {
@@ -78,7 +85,6 @@ h1 {
 
 .submit-button-container {
 	margin-top: 15%;
-	margin-bottom: 8%;
 	border: none;
 }
 
@@ -160,4 +166,10 @@ h1 {
 
 #spinner {
 	width: 15%
+}
+
+.bottom {
+	background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(83,83,236,1) 100%);
+	border-radius: 10px 10px 0px 0px;
+	height: 5vh;
 }
