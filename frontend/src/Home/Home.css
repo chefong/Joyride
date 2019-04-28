@@ -161,7 +161,8 @@
 }
 
 .spinner-container {
-	text-align: center
+	text-align: center;
+	height: 100px
 }
 
 #spinner {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './Pickup.css'
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const dots = require('./assets/dots.png')
 const dotsDown = require('./assets/dotsdown.png')
@@ -21,7 +23,7 @@ export default class Pickup extends Component {
     e.preventDefault()
     this.setState({ isLoading: true })
 
-    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://1f985546.ngrok.io/sms`,
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://c1aceac1.ngrok.io/sms`,
       JSON.stringify(passenger)
     ).then(res => {
       this.setState({ isLoading: false })
@@ -29,6 +31,7 @@ export default class Pickup extends Component {
     })
     .catch(err => {
       console.log(err)
+      toast.error("Error!")
     })
   }
 
@@ -67,6 +70,17 @@ export default class Pickup extends Component {
           <div className="spinner-container">
             { this.state.isLoading && <img id="spinner" src={ spinner } alt=""/> }
           </div>
+          <ToastContainer
+            position="bottom-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnVisibilityChange
+            draggable
+            pauseOnHover
+            />
         </div>
       </div>
     )

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import MapContainer from './MapContainer'
 import Field from './Field'
 import Pickup from './Pickup'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Home.css'
 
 import axios from 'axios'
@@ -22,7 +24,8 @@ export default class Home extends Component {
     num: 1,
     requested: false,
     allPassengers: [],
-    isLoading: false
+    isLoading: false,
+    error: false
   }
 
   handleClick = e => {
@@ -84,7 +87,7 @@ export default class Home extends Component {
     }
     console.log(allPassengers)
 
-    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://1f985546.ngrok.io/foo`,
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://c1aceac1.ngrok.io/foo`,
       JSON.stringify({
         startAddress,
         endAddress,
@@ -99,6 +102,10 @@ export default class Home extends Component {
       })
     }).catch(err => {
       console.log(err)
+      this.setState({
+        isLoading: false
+      })
+      toast.error("Error!")
     })
   }
 
@@ -157,7 +164,7 @@ export default class Home extends Component {
                       </div>
                     </div>
                   </div>
-  				  <div className="row justify-content-center">
+  				        <div className="row justify-content-center">
                     <button type="button" class="btn-light plusButton" onClick={this.handleClick}>+</button>
                   </div>
                   <div className="spinner-container">
@@ -169,6 +176,17 @@ export default class Home extends Component {
                     </div>
                   </div>
                 </form>
+                <ToastContainer
+                  position="bottom-center"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnVisibilityChange
+                  draggable
+                  pauseOnHover
+                  />
               </div> }
               { this.state.requested && <Pickup allPassengers={ this.state.allPassengers } startAddress={ this.state.startAddress } endAddress={ this.state.endAddress }/> }
             </div>
