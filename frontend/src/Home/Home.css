@@ -109,12 +109,11 @@ h1 {
 }
 
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-/*  background-color: #5EAAF0;*/ 
-  background-color: #00d4ff;
+  background-color: white;
   border-radius: 10px;
 }
 
