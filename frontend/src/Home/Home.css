@@ -17,7 +17,7 @@
 }
 
 .plusButton {
-	border-radius: 50%;
+	border-radius: 12px;
 	margin: auto;
 	margin-top: 5%;
 	border: none;
@@ -39,7 +39,7 @@ h1 {
 	font-size: 45px;
 	animation-duration: 3s;
 	animation-delay: 1s;
-	color: #black;
+	color: black;
 	text-decoration: underline;
 	padding-top: 80px;
 	}
@@ -69,10 +69,11 @@ h1 {
 	background-color: white;
 	border-style: none;
 	color: white;
+	border-radius: 15px
 }
 
 .start-address-container {
-  margin-bottom: 6%
+  margin-bottom: 2%
 }
 
 .end-address-container {
@@ -117,8 +118,11 @@ h1 {
 	width: 50%;
 }
 
+.dots-container {
+	margin-top: 2%
+}
 
-
-
-
-
+.dots {
+	width: 2%;
+	height: 2%
+}
