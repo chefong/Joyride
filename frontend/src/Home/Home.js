@@ -100,7 +100,7 @@ export default class Home extends Component {
           <div className="row">
             <div className="left_side col-md-4">
               <div class="container">
-                  <img class="animated fadeInDown" src={require("./assets/hex_redone.png")}></img>
+                  <img class="hex animated fadeInDown" src={require("./assets/hex_redone.png")}></img>
               </div>
               <p class="body">Carpuuling made right for everyone, everywhere.</p>
               { !this.state.requested && <div className="panel-container">

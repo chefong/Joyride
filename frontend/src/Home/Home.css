@@ -76,9 +76,9 @@ h1 {
 }
 
 .hex {
-	position: absolute;
+	/* position: absolute; */
 	width: 200px;
-	padding-top: 10px;
+	padding: 8% 0
 }
 
 ::-webkit-scrollbar {
