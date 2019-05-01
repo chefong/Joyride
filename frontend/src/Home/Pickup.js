@@ -23,7 +23,7 @@ export default class Pickup extends Component {
     e.preventDefault()
     this.setState({ isLoading: true })
 
-    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://c1aceac1.ngrok.io/sms`,
+    axios.post(`https://cors-anywhere.herokuapp.com/` + `http://9b773ac3.ngrok.io/sms`,
       JSON.stringify(passenger)
     ).then(res => {
       this.setState({ isLoading: false })
