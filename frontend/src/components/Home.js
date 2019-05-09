@@ -167,11 +167,15 @@ export default class Home extends Component {
                   </div>
                   <div className="adjust-container">
                     <div className="row justify-content-center">
-                      <div className="col-1">
-                        <button type="button" class="btn-light plusButton" onClick={this.handlePlusClick}>+</button>
+                      <div className="col-md-2">
+                        <div className="adjust-button-container">
+                          <button type="button" class="btn-light plusButton" onClick={this.handlePlusClick}>+</button>
+                        </div>
                       </div>
-                      <div className="col-1">
-                        <button type="button" class="btn-light minusButton" onClick={this.handleMinusClick}>-</button>
+                      <div className="col-md-2">
+                        <div className="adjust-button-container">
+                          <button type="button" class="btn-light minusButton" onClick={this.handleMinusClick}>-</button>
+                        </div>
                       </div>
                     </div>
                   </div>

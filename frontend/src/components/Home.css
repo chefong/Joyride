@@ -29,26 +29,6 @@
 	color: white;
 }
 
-.plusButton {
-	border-radius: 12px;
-	margin: auto;
-	margin-top: 2%;
-	margin-bottom: 10%;
-	border: none;
-	font-size: 125%;
-	padding: 0 10px
-}
-
-.minusButton {
-	border-radius: 12px;
-	margin: auto;
-	margin-top: 2%;
-	margin-bottom: 10%;
-	border: none;
-	font-size: 125%;
-	padding: 0 12.5px
-}
-
 .map-view-container {
 	width: 100%;
   	animation-duration: 3s;
@@ -184,5 +164,27 @@
 }
 
 .adjust-container {
-	margin-right: 1%
+	text-align: center
+}
+
+.adjust-button-container {
+	text-align: center
+}
+
+.plusButton {
+	border-radius: 12px;
+	margin-top: 2%;
+	margin-bottom: 10%;
+	border: none;
+	font-size: 125%;
+	padding: 0 10px
+}
+
+.minusButton {
+	border-radius: 12px;
+	margin-top: 2%;
+	margin-bottom: 10%;
+	border: none;
+	font-size: 125%;
+	padding: 0 12.5px
 }
