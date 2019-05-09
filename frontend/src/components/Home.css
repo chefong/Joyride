@@ -22,9 +22,7 @@
 	margin-bottom: 4%;
 	border: 10px 0px 0px 0px solid;
 	border-style: solid none none none;
-    /*border-image-source: linear-gradient(45deg, rgb(232, 139, 109), rgb(232, 139, 109));*/
-     /*border-image: linear-gradient(to left, #e6e6ff 0%, #d53a9d 100%);*/
-    border-image-slice: 1;
+  border-image-slice: 1;
 }
 
 .field-container {
@@ -73,7 +71,7 @@
 	background: linear-gradient(
       rgba(0, 0, 8, .87), 
       rgba(0, 0, 8, .87)
-    ), url("./assets/map2.png");
+    ), url("../assets/map2.png");
 	overflow: auto;
 	width: 100%;
 }
