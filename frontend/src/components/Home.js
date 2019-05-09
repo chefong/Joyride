@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import MapContainer from './MapContainer'
 import Field from './Field'
 import Pickup from './Pickup'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import './Home.css'
 
 import axios from 'axios'
 
-const dots = require('./assets/dots.png')
-const dotsDown = require('./assets/dotsdown.png')
-const dotsUp = require('./assets/dotsup.png')
-const spinner = require('./assets/spinner.svg')
+const hexLogo = require("../assets/hex_redone.png")
+const dotsDown = require('../assets/dotsdown.png')
+const dotsUp = require('../assets/dotsup.png')
+const spinner = require('../assets/spinner.svg')
 
 export default class Home extends Component {
 
@@ -124,7 +124,7 @@ export default class Home extends Component {
             <div className="left_side col-md-4">
               <div class="container">
                 <div className="hex-container">
-                  <img class="hex animated fadeIn" src={require("./assets/hex_redone.png")} onClick={this.handleImageClick}></img>
+                  <img class="hex animated fadeIn" src={ hexLogo } onClick={this.handleImageClick}></img>
                 </div>
               </div>
               { !this.state.requested && <div className="panel-container">

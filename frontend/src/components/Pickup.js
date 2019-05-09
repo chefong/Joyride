@@ -4,10 +4,9 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const dots = require('./assets/dots.png')
-const dotsDown = require('./assets/dotsdown.png')
-const dotsUp = require('./assets/dotsup.png')
-const spinner = require('./assets/spinner.svg')
+const dotsDown = require('../assets/dotsdown.png')
+const dotsUp = require('../assets/dotsup.png')
+const spinner = require('../assets/spinner.svg')
 
 export default class Pickup extends Component {
   state = {

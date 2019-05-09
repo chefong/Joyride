@@ -1,47 +1,36 @@
 import React, { Component } from "react";
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import { Map, GoogleApiWrapper } from "google-maps-react";
 
 const key = process.env.REACT_APP_API_KEY
 const google = window.google;
-let allPassengers = []
 
-export class MapContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.onMarkerClick = this.onMarkerClick.bind(this);
-    this.handleMapReady = this.handleMapReady.bind(this);
-    this.state = {
-      showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {},
-      allPassengers: [],
-      gMap: undefined
-    };
+class MapContainer extends Component {
+  state = {
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {},
+    allPassengers: [],
+    gMap: undefined
   }
 
   componentDidUpdate = () => {
-    // for (let i = 0; i < this.props.allPassengers.length; ++i) {
-    //   let address = this.props.allPassengers[i].address
-    //   console.log(address)
-    // }
-    console.log(this.props.allPassengers)
     if (this.props.allPassengers.length >= 1) {
       this.calculateAndDisplayRoute(this.state.gMap)
     }
   }
 
-  handleMapReady(mapProps, map) {
-    //this.calculateAndDisplayRoute(map);
+  handleMapReady = map => {
     this.setState({ gMap: map })
   }
 
   calculateAndDisplayRoute(map) {
     const directionsService = new google.maps.DirectionsService();
     const directionsDisplay = new google.maps.DirectionsRenderer({
-    polylineOptions: {
-      strokeColor: "#5EAAF0"
-    }
-  });
+      polylineOptions: {
+        strokeColor: "#5EAAF0"
+      }
+    })
+    
     directionsDisplay.setMap(map);
 
     let waypoints = []
@@ -79,8 +68,6 @@ export class MapContainer extends Component {
     }
 
     waypoints.push(endPoint)
-
-    console.log(waypoints)
 
     const origin = waypoints.shift().location;
     const destination = waypoints.pop().location;
@@ -200,16 +187,13 @@ export class MapContainer extends Component {
               stylers: [{color: '#17263c'}]
             }
           ]} 
-          google={this.props.google} 
-          zoom={14}
-          center={new google.maps.LatLng(-34.397, 150.644)} 
-          onReady={this.handleMapReady} 
-          
+            google={ this.props.google } 
+            zoom={ 14 }
+            center={ new google.maps.LatLng(-34.397, 150.644) } 
+            onReady={ this.handleMapReady } 
           />
       </div>
     );
   }
 }
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAxl5yLMYFQZl5OhdMIqnPz3jbD4qjSeIo'
-})(MapContainer);
+export default GoogleApiWrapper({ apiKey: key })(MapContainer)
