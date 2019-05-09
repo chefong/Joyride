@@ -139,7 +139,7 @@ export default class Home extends Component {
                 </div>
               </div>
               { !this.state.requested && <div className="panel-container">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} autoComplete="off">
                   <div className="start-address-container">
                     <div className="row">
                       <p className="start-end">Start Address</p>
