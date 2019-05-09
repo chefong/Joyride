@@ -44,7 +44,6 @@ class MapContainer extends Component {
       stopover: false
     }
 
-    console.log(this.props.allPassengers)
     if (this.props.allPassengers.length < 1) {
       waypoints.push(startPoint)
       waypoints = [

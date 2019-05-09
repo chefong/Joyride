@@ -68,8 +68,6 @@ export default class Home extends Component {
 
     let startAddress = e.target.elements.startAddress.value
     let endAddress = e.target.elements.endAddress.value
-    console.log(startAddress)
-    console.log(endAddress)
 
     this.setState({startAddress, endAddress, isLoading: true})
 
@@ -101,7 +99,6 @@ export default class Home extends Component {
         allPassengers.push(passenger)
       }
     }
-    console.log(allPassengers)
 
     axios.post(`https://cors-anywhere.herokuapp.com/` + `http://9b773ac3.ngrok.io/foo`,
       JSON.stringify({
@@ -110,14 +107,12 @@ export default class Home extends Component {
         allPassengers
       })
     ).then(res => {
-      console.log(res.data)
       this.setState({
         requested: true,
         allPassengers: res.data,
         isLoading: false
       })
     }).catch(err => {
-      console.log(err)
       this.setState({
         isLoading: false
       })

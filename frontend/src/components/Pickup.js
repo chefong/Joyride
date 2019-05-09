@@ -13,11 +13,6 @@ export default class Pickup extends Component {
     isLoading: false
   }
 
-  componentDidMount = () => {
-    console.log(this.props.startAddress)
-    console.log(this.props.endAddress)
-  }
-
   handlePickup = (passenger, e) => {
     e.preventDefault()
     this.setState({ isLoading: true })
@@ -26,10 +21,8 @@ export default class Pickup extends Component {
       JSON.stringify(passenger)
     ).then(res => {
       this.setState({ isLoading: false })
-      console.log(res)
     })
     .catch(err => {
-      console.log(err)
       toast.error("Error!")
     })
   }
