@@ -39,6 +39,16 @@
 	padding: 0 10px
 }
 
+.minusButton {
+	border-radius: 12px;
+	margin: auto;
+	margin-top: 2%;
+	margin-bottom: 10%;
+	border: none;
+	font-size: 125%;
+	padding: 0 12.5px
+}
+
 .map-view-container {
 	width: 100%;
   	animation-duration: 3s;
@@ -171,4 +181,8 @@
 	background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(83,83,236,1) 100%);
 	border-radius: 10px 10px 0px 0px;
 	height: 5vh;
+}
+
+.adjust-container {
+	margin-right: 4%
 }

@@ -188,8 +188,8 @@ class MapContainer extends Component {
             }
           ]} 
             google={ this.props.google } 
-            zoom={ 14 }
-            center={ new google.maps.LatLng(-34.397, 150.644) } 
+            zoom={ 13 }
+            center={ new google.maps.LatLng(37.773972, -122.431297) } 
             onReady={ this.handleMapReady } 
           />
       </div>

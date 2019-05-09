@@ -28,7 +28,7 @@ export default class Home extends Component {
     error: false
   }
 
-  handleClick = e => {
+  handlePlusClick = e => {
     e.preventDefault()
 
     if (this.state.num >= 3) {
@@ -42,6 +42,22 @@ export default class Home extends Component {
     this.setState({
       people: passengers,
       num: this.state.num + 1
+    })
+  }
+
+  handleMinusClick = e => {
+    e.preventDefault()
+    
+    if (this.state.num <= 1) {
+      return
+    }
+
+    let passengers = this.state.people
+    passengers.pop()
+
+    this.setState({
+      people: passengers,
+      num: this.state.num - 1
     })
   }
 
@@ -149,6 +165,16 @@ export default class Home extends Component {
                       return <Field name={person.name} phoneNumber={person.phoneNumber} address={person.address} passengerNum={person.passengerNum}/>
                     }) }
                   </div>
+                  <div className="adjust-container">
+                    <div className="row justify-content-center">
+                      <div className="col-1">
+                        <button type="button" class="btn-light plusButton" onClick={this.handlePlusClick}>+</button>
+                      </div>
+                      <div className="col-1">
+                        <button type="button" class="btn-light minusButton" onClick={this.handleMinusClick}>-</button>
+                      </div>
+                    </div>
+                  </div>
                   <div className="dots-container">
                     <div className="row justify-content-center">
                       <img className="dotsUp" src={ dotsUp } alt=""/>
@@ -163,9 +189,6 @@ export default class Home extends Component {
                         <input class="form-control" type="text" placeholder="End Address" name="endAddress" id="endAddress"/>
                       </div>
                     </div>
-                  </div>
-  				        <div className="row justify-content-center">
-                    <button type="button" class="btn-light plusButton" onClick={this.handleClick}>+</button>
                   </div>
                   <div className="spinner-container">
                     { this.state.isLoading && <img id="spinner" src={ spinner } alt=""/> }
