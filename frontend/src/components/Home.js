@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 import MapContainer from './MapContainer'
 import Field from './Field'
 import Pickup from './Pickup'
+import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './Home.css'
-
-import axios from 'axios'
 
 const hexLogo = require("../assets/hex_redone.png")
 const dotsDown = require('../assets/dotsdown.png')
@@ -14,7 +13,6 @@ const dotsUp = require('../assets/dotsup.png')
 const spinner = require('../assets/spinner.svg')
 
 export default class Home extends Component {
-
   state = {
     startAddress: "",
     endAddress: "",
@@ -75,10 +73,17 @@ export default class Home extends Component {
       let passengerName = e.target.elements.pName.value
       let passengerPhoneNumber = e.target.elements.pPhoneNumber.value
       let passengerAddress = e.target.elements.pAddress.value
+      
+      // Check phone number
+      if (isNaN(passengerPhoneNumber)) {
+        toast.error("Invalid phone number!")
+        this.setState({ isLoading: false })
+        return
+      }
 
       let passenger = {
         name: passengerName,
-        phoneNumber: passengerPhoneNumber,
+        phoneNumber: "1" + passengerPhoneNumber,
         address: passengerAddress
       }
 
@@ -90,9 +95,16 @@ export default class Home extends Component {
         let passengerPhoneNumber = e.target.elements.pPhoneNumber[i].value
         let passengerAddress = e.target.elements.pAddress[i].value
 
+        // Check phone number
+        if (isNaN(passengerPhoneNumber)) {
+          toast.error("Invalid phone number!")
+          this.setState({ isLoading: false })
+          return
+        }
+
         let passenger = {
           name: passengerName,
-          phoneNumber: passengerPhoneNumber,
+          phoneNumber: "1" + passengerPhoneNumber,
           address: passengerAddress
         }
 

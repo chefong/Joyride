@@ -14,7 +14,7 @@ export default class Field extends Component {
               <input class="form-control" type="text" placeholder="Name" name="pName" id="pName"/>
             </div>
             <div className="col">
-              <input class="form-control" type="text" placeholder="Phone Number" name="pPhoneNumber" id="pPhoneNumber"/>
+              <input class="form-control" type="text" placeholder="Phone Number" name="pPhoneNumber" id="pPhoneNumber" maxLength="10"/>
             </div>
           </div>
           <div className="row">
