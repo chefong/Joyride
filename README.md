@@ -42,4 +42,4 @@ Joyride takes a start point, an end point, and three stop points. Given this dat
 
 ![](https://...Dark.png)            |  ![](https://...Dark.png) | ![](https://...Ocean.png)        |![](https://...Ocean.png)      
 :--------------------------------------:|:-------------------------:|:--------------------------------:|:---------------------:
-[Aditya Acharya](github.com/adialachar) |  [Eric Ong](github.com/ericong18)| John Shin                        | Joshua Sun
+[Aditya Acharya](https://github.com/adialachar) |  [Eric Ong](https://github.com/ericong18)| John Shin                        | Joshua Sun
