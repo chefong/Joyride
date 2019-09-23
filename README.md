@@ -40,6 +40,6 @@ Joyride takes a start point, an end point, and three stop points. Given this dat
 
 ## Team
 
-[![Aditya Acharya](https://avatars1.githubusercontent.com/u/12688534?v=3&s=144)](https://github.com/iharsh234)  | [![Eric Ong](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/)
+[![Aditya Acharya](https://avatars1.githubusercontent.com/u/12688534?v=3&s=144)](https://github.com/iharsh234)  | [![Eric Ong](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/) [![Eric Ong](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/) [![Eric Ong](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/)
 ---|---
-[Aditya Acharya](https://github.com/iharsh234) |[Eric Ong](https://www.quandl.com)
+[Aditya Acharya](https://github.com/iharsh234) |[Eric Ong](https://www.quandl.com)|[Eric Ong](https://www.quandl.com)|[Eric Ong](https://www.quandl.com)
