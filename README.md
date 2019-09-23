@@ -40,6 +40,6 @@ Joyride takes a start point, an end point, and three stop points. Given this dat
 
 ## Team
 
-Solarized dark             |  Solarized Ocean          | John Shin         |      Joshua Sun      |
-:-------------------------:|:-------------------------:|:-----------------:|:---------------------:
-![](https://...Dark.png)  |  ![](https://...Ocean.png)
+![](https://...Dark.png)   |  ![](https://...Dark.png) | ![](https://...Ocean.png)        |![](https://...Ocean.png)      
+:-------------------------:|:-------------------------:|:--------------------------------:|:---------------------:
+ Aditya Acharya            |  Eric Ong                 | John Shin                        | Joshua Sun
