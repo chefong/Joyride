@@ -8,14 +8,38 @@ Joyride
 </h1>
 <h4 align="center">Carpooling with friends has never been easier.</h4>
 
-To install and run Joyride locally, first clone this repository.
+## Demo
+(Coming soon)
 
-Before launching the React application, install all Node modules.
-```
-npm install
-```
+## Inspiration
+There's always difficulty in organizing rides in large groups.
 
-Then, you should be all ready to launch the application locally.
-```
-npm start
-```
+As the driver, who do I pick up first?
+When should I let them know that I am nearby?
+
+Joyride is our ride-sharing solution to these problems.
+
+## About
+Joyride takes a start point, an end point, and three stop points. Given this data, Joyride uses the Google Maps API to calculate the most effecient route. This is done by calculating every possible route, and then returning the route that takes the least amount of time to complete. Joyride also allows you to text your friends when you've arrived at their house using the Twilio SMS API
+
+## Key Features
+* Given start point, endpoint, and three interim points, returns the fastest route
+* Texts each user the driver's current ETA to their house
+* Enables users to text when arrived w/ Twilio SMS API
+* Mobile support
+
+## Built with 
+* React
+* Flask
+* Google Maps API
+* Twilio API
+
+## To-do
+* Allow trips to be scheduled for the future
+* Add feature to allow drivers to let users know if there is a change to ETA
+
+## Team
+
+[![Aditya Acharya](https://avatars1.githubusercontent.com/u/12688534?v=3&s=144)](https://github.com/iharsh234)  | [![Eric Ong](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/)
+---|---
+[Aditya Acharya](https://github.com/iharsh234) |[Eric Ong](https://www.quandl.com)
