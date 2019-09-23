@@ -1,8 +1,12 @@
-# Joyride
-Joyride is an application that provides people with the optimal route when carpooling with friends, developed at Citrus Hack 2019.
+
 
 
 <p align="center"><img src="./frontend/src/assets/hex_redone.png" width="35%"/></p>
+<br>
+Joyride
+<br>
+
+<h4 align="center">Carpooling with friends has never been easier.</h4>
 
 To install and run Joyride locally, first clone this repository.
 
