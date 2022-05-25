@@ -37,7 +37,7 @@ pandas==0.24.2
 py2app==0.19
 pyasn1==0.4.5
 pycparser==2.19
-PyJWT==1.7.1
+PyJWT==2.4.0
 pylint==2.3.1
 pyobjc-core==5.2
 pyobjc-framework-Accounts==5.2
